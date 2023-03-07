@@ -5,4 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface NoteRepository extends JpaRepository<Note, Long> {
     Note findNotesById(long id);
+
+    Note searchAllByTitleOrBodyOrPropertyZipContaining(String query);
 }

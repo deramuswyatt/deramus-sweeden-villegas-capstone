@@ -1,6 +1,8 @@
 package com.codeup.deramussweedenvillegascapstone.Controllers;
 
 import com.codeup.deramussweedenvillegascapstone.models.User;
+import com.codeup.deramussweedenvillegascapstone.repositories.CategoryRepository;
+import com.codeup.deramussweedenvillegascapstone.repositories.NoteRepository;
 import com.codeup.deramussweedenvillegascapstone.repositories.PropertyRepository;
 import com.codeup.deramussweedenvillegascapstone.repositories.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,10 +16,14 @@ public class PropertyController {
     private final PropertyRepository propDao;
 //    private final EmailService emailService;
 
-    public PropController(UserRepository userDao, PropRepository propDao, EmailService emailService) {
+    private final NoteRepository noteDao;
+    private final CategoryRepository catDao;
+
+    public PropertyController(UserRepository userDao, PropertyRepository propDao, NoteRepository noteDao, CategoryRepository catDao) {
         this.userDao = userDao;
         this.propDao = propDao;
-        this.emailService = emailService;
+        this.noteDao = noteDao;
+        this.catDao = catDao;
     }
 
     @GetMapping("/props")
@@ -26,9 +32,9 @@ public class PropertyController {
         return "props/index";
 
 
-    @GetMapping("/props/search")
+    @GetMapping("/notes/search")
     public String showAllProps(@RequestParam String query, Model model) {
-        model.addAttribute("props", propDao.searchByTitleLike(query));
+        model.addAttribute("props", noteDao.searchAllByTitleOrBodyOrPropertyZipContaining(query));
         return "props/index";
     }
 
