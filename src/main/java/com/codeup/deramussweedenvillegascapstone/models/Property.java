@@ -23,6 +23,9 @@ public class Property {
     @Column(nullable = false, length = 100)
     private int zip;
 
+    @Column(nullable = false, length = 100)
+    private int category;
+
     @Column(nullable = false)
     private String image_url;
 
@@ -33,38 +36,30 @@ public class Property {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name="property_category",
-            joinColumns = {@JoinColumn(name="property_id")},
-            inverseJoinColumns = {@JoinColumn(name="category_id")}
-    )
-    private List<Category> categories;
+    public Property() {
+    }
 
-    public Property(long id, String street_add, String city, String state, int zip, String image_url, List<Note> notes, User user, List<Category> categories) {
+    public Property(long id, String street_add, String city, String state, int zip, int category, String image_url, List<Note> notes, User user) {
         this.id = id;
         this.street_add = street_add;
         this.city = city;
         this.state = state;
         this.zip = zip;
+        this.category = category;
         this.image_url = image_url;
         this.notes = notes;
         this.user = user;
-        this.categories = categories;
     }
 
-    public Property(String street_add, String city, String state, int zip, String image_url, List<Note> notes, User user, List<Category> categories) {
+    public Property(String street_add, String city, String state, int zip, int category, String image_url, List<Note> notes, User user) {
         this.street_add = street_add;
         this.city = city;
         this.state = state;
         this.zip = zip;
+        this.category = category;
         this.image_url = image_url;
         this.notes = notes;
         this.user = user;
-        this.categories = categories;
-    }
-
-    public Property() {
     }
 
     public long getId() {
@@ -107,6 +102,14 @@ public class Property {
         this.zip = zip;
     }
 
+    public int getCategory() {
+        return category;
+    }
+
+    public void setCategory(int category) {
+        this.category = category;
+    }
+
     public String getImage_url() {
         return image_url;
     }
@@ -129,14 +132,6 @@ public class Property {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public List<Category> getCategories() {
-        return categories;
-    }
-
-    public void setCategories(List<Category> categories) {
-        this.categories = categories;
     }
 }
 
