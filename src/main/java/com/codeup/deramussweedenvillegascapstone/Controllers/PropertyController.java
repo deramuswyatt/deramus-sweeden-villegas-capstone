@@ -1,6 +1,7 @@
 package com.codeup.deramussweedenvillegascapstone.Controllers;
 
 import com.codeup.deramussweedenvillegascapstone.models.User;
+import com.codeup.deramussweedenvillegascapstone.repositories.PropertyRepository;
 import com.codeup.deramussweedenvillegascapstone.repositories.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -10,8 +11,8 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class PropertyController {
     private final UserRepository userDao;
-    private final PropRepository propDao;
-    private final EmailService emailService;
+    private final PropertyRepository propDao;
+//    private final EmailService emailService;
 
     public PropController(UserRepository userDao, PropRepository propDao, EmailService emailService) {
         this.userDao = userDao;
