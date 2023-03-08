@@ -24,7 +24,7 @@ public class Property {
     private int zip;
 
     @Column(nullable = false, length = 100)
-    private int category;
+    private String category;
 
     @Column(nullable = false)
     private String image_url;
@@ -39,7 +39,7 @@ public class Property {
     public Property() {
     }
 
-    public Property(long id, String street_add, String city, String state, int zip, int category, String image_url, List<Note> notes, User user) {
+    public Property(long id, String street_add, String city, String state, int zip, String category, String image_url, List<Note> notes, User user) {
         this.id = id;
         this.street_add = street_add;
         this.city = city;
@@ -51,7 +51,7 @@ public class Property {
         this.user = user;
     }
 
-    public Property(String street_add, String city, String state, int zip, int category, String image_url, List<Note> notes, User user) {
+    public Property(String street_add, String city, String state, int zip, String category, String image_url, List<Note> notes, User user) {
         this.street_add = street_add;
         this.city = city;
         this.state = state;
@@ -102,11 +102,11 @@ public class Property {
         this.zip = zip;
     }
 
-    public int getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(int category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 
