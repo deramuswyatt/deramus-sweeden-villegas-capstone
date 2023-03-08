@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials :: head ('Edit Profile')"></head>
+<body class="main-bg main-container">
+<nav th:replace="partials :: navbar"></nav>
+<main class="container">
+    <h1>Edit Your User Profile</h1>
+    <h2 th:text="|Hello, ${#authentication.principal.username}!|"></h2>
+    <form method="post" th:action="@{/profile}">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="${#authentication.principal.email}" required>
+        </div>
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" value="${#authentication.principal.firstName}">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" value="${#authentication.principal.lastName}">
+        </div>
+        <button class="btn footer-bg w-100" type="submit">Save Changes</button>
+    </form>
+
+    <form method="post" th:action="@{/profile}">
+        <!-- form fields for editing user profile -->
+        <button class="btn footer-bg w-100" type="submit">Save Changes</button>
+    </form>
+    <button class="btn btn-danger" onclick="confirmDelete()">Delete Account</button>
+
+    <script>
+        function confirmDelete() {
+            if (confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
+                // send request to server to delete user account
+                fetch('/delete-account', {method: 'DELETE'})
+                    .then(response => {
+                        if (response.ok) {
+                            // redirect to login page or display success message
+                            window.location.href = '/login';
+                        } else {
+                            // display error message
+                            alert('Failed to delete account. Please try again later.');
+                        }
+                    })
+                    .catch(error => {
+                        // display error message
+                        alert('Failed to delete account. Please try again later.');
+                    });
+            }
+        }
+    </script>
+
+</main>
+<footer th:replace="partials :: footer"></footer>
+<div th:replace="partials :: boot-scripts"></div>
+</body>
+</html>

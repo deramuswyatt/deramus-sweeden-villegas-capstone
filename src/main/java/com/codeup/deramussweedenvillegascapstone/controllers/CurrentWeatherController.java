@@ -1,4 +1,4 @@
-package com.codeup.deramussweedenvillegascapstone.Controllers;
+package com.codeup.deramussweedenvillegascapstone.controllers;
 
 import com.codeup.deramussweedenvillegascapstone.services.LiveWeatherService;
 import jakarta.websocket.DeploymentException;

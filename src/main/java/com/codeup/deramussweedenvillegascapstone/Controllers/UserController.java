@@ -1,4 +1,4 @@
-package com.codeup.deramussweedenvillegascapstone.Controllers;
+package com.codeup.deramussweedenvillegascapstone.controllers;
 
 import com.codeup.deramussweedenvillegascapstone.models.User;
 import com.codeup.deramussweedenvillegascapstone.repositories.NoteRepository;
@@ -39,6 +39,8 @@ public class UserController {
         userDao.save(user);
         return "redirect:/login";
     }
+
+
 
     @GetMapping("/profile")
     public String showProfile() {return "users/profile";}
