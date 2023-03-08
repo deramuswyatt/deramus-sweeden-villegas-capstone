@@ -45,7 +45,7 @@ public class SecurityConfiguration {
                 /* Pages that can be viewed without having to log in */
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/", "/props", "/props/{id}", "/register", "/props/create", "/current-weather") // anyone can see the home and the ads pages
+                .requestMatchers("/", "/props", "/props/{id}", "/register", "/props/create", "/current-weather", "/notes/create") // anyone can see the home and the ads pages
                 .permitAll()
                 /* Pages that require authentication */
                 .and()
@@ -59,4 +59,5 @@ public class SecurityConfiguration {
         return http.build();
     }
 
+//    comment
 }

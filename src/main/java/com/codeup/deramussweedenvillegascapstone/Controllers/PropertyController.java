@@ -30,8 +30,8 @@ public class PropertyController {
         model.addAttribute("props", propDao.findAll());
         return "props/index";
     }
-//
-//
+
+
     @GetMapping("/props/{id}")
     public String getOneProp(@PathVariable long id, Model model) {
         Property prop = propDao.findPropertiesById(id);
@@ -47,10 +47,7 @@ public class PropertyController {
 
     @PostMapping("/props/create")
     public String saveProp(@ModelAttribute Property prop) {
-        User user = new User(1);
-//        System.out.println("user = " + user.toString());
-
-//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //        Property origProp = propDao.findPropertiesById(prop.getId());
 //        if(origProp == null || user.getId() == origProp.getUser().getId()) {
             prop.setUser(user);
