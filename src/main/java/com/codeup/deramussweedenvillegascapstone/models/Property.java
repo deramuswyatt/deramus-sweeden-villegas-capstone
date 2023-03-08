@@ -62,6 +62,10 @@ public class Property {
         this.user = user;
     }
 
+    public Property(long id) {
+        this.id = id;
+    }
+
     public long getId() {
         return id;
     }
