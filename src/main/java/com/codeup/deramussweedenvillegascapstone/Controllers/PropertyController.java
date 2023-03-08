@@ -23,18 +23,21 @@ public class PropertyController {
     }
     //    private final EmailService emailService;
 
-//    @GetMapping("/props")
-//    public String showAllProps(Model model) {
-//        model.addAttribute("props", propDao.findAll());
-//        return "props/index";
 
-//
-//    @GetMapping("/props/{id}")
-//    public String getOneProp(@PathVariable long id, Model model) {
-//        Property prop = propDao.findPropertiesById(id);
-//        model.addAttribute("prop", prop);
-//        return "props/show";
-//    }
+
+    @GetMapping("/props")
+    public String showAllProps(Model model) {
+        model.addAttribute("props", propDao.findAll());
+        return "props/index";
+    }
+
+
+    @GetMapping("/props/{id}")
+    public String getOneProp(@PathVariable long id, Model model) {
+        Property prop = propDao.findPropertiesById(id);
+        model.addAttribute("prop", prop);
+        return "props/show";
+    }
 
     @GetMapping("/props/create")
     public String showPropForm(Model model) {
@@ -44,7 +47,6 @@ public class PropertyController {
 
     @PostMapping("/props/create")
     public String saveProp(@ModelAttribute Property prop) {
-//        User user = new User(2);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //        Property origProp = propDao.findPropertiesById(prop.getId());
 //        if(origProp == null || user.getId() == origProp.getUser().getId()) {
