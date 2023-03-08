@@ -55,7 +55,13 @@ public class User {
     public User() {
     }
 
-    public User(User user) {
+    public User(User copy) {
+        id = copy.id;
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+        first_name = copy.first_name;
+        last_name = copy.last_name;
     }
 
     public long getId() {
