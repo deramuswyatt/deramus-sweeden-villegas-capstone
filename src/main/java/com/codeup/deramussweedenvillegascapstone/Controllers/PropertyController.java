@@ -1,4 +1,4 @@
-package com.codeup.deramussweedenvillegascapstone.controllers;
+package com.codeup.deramussweedenvillegascapstone.Controllers;
 
 import com.codeup.deramussweedenvillegascapstone.models.Property;
 import com.codeup.deramussweedenvillegascapstone.models.User;
@@ -23,8 +23,6 @@ public class PropertyController {
     }
     //    private final EmailService emailService;
 
-
-
 //    @GetMapping("/props")
 //    public String showAllProps(Model model) {
 //        model.addAttribute("props", propDao.findAll());
@@ -46,10 +44,8 @@ public class PropertyController {
 
     @PostMapping("/props/create")
     public String saveProp(@ModelAttribute Property prop) {
-        User user = new User(2);
-        System.out.println("user = " + user.toString());
-
-//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        User user = new User(2);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //        Property origProp = propDao.findPropertiesById(prop.getId());
 //        if(origProp == null || user.getId() == origProp.getUser().getId()) {
             prop.setUser(user);

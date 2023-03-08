@@ -1,4 +1,4 @@
-package com.codeup.deramussweedenvillegascapstone.controllers;
+package com.codeup.deramussweedenvillegascapstone.Controllers;
 
 import com.codeup.deramussweedenvillegascapstone.models.Note;
 import com.codeup.deramussweedenvillegascapstone.models.Property;
