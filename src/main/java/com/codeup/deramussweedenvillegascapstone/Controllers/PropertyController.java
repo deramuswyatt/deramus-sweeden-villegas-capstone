@@ -46,7 +46,7 @@ public class PropertyController {
 
     @PostMapping("/props/create")
     public String saveProp(@ModelAttribute Property prop) {
-        User user = new User(3);
+        User user = new User(2);
         System.out.println("user = " + user.toString());
 
 //        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
