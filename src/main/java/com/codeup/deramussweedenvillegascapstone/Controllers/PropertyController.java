@@ -1,4 +1,4 @@
-package com.codeup.deramussweedenvillegascapstone.controllers;
+package com.codeup.deramussweedenvillegascapstone.Controllers;
 
 import com.codeup.deramussweedenvillegascapstone.models.Property;
 import com.codeup.deramussweedenvillegascapstone.models.User;
@@ -25,18 +25,19 @@ public class PropertyController {
 
 
 
-//    @GetMapping("/props")
-//    public String showAllProps(Model model) {
-//        model.addAttribute("props", propDao.findAll());
-//        return "props/index";
-
+    @GetMapping("/props")
+    public String showAllProps(Model model) {
+        model.addAttribute("props", propDao.findAll());
+        return "props/index";
+    }
 //
-//    @GetMapping("/props/{id}")
-//    public String getOneProp(@PathVariable long id, Model model) {
-//        Property prop = propDao.findPropertiesById(id);
-//        model.addAttribute("prop", prop);
-//        return "props/show";
-//    }
+//
+    @GetMapping("/props/{id}")
+    public String getOneProp(@PathVariable long id, Model model) {
+        Property prop = propDao.findPropertiesById(id);
+        model.addAttribute("prop", prop);
+        return "props/show";
+    }
 
     @GetMapping("/props/create")
     public String showPropForm(Model model) {
@@ -46,8 +47,8 @@ public class PropertyController {
 
     @PostMapping("/props/create")
     public String saveProp(@ModelAttribute Property prop) {
-        User user = new User(2);
-        System.out.println("user = " + user.toString());
+        User user = new User(1);
+//        System.out.println("user = " + user.toString());
 
 //        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //        Property origProp = propDao.findPropertiesById(prop.getId());

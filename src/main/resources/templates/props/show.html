@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials :: head ('Viewing a Property')">
+    <title>Properties</title>
+</head>
+<body class="main-bg main-container">
+<nav th:replace="partials :: navbar"></nav>
+<main class="container">
+    <div>
+        <h1 th:text="${property.street_add}"></h1>
+        <h3 th:text="|By: ${property.user.username}|"></h3>
+        <p th:text="${property.city}"></p>
+        <p th:text="${property.state}"></p>
+        <p th:text="${property.zip}"></p>
+        <p th:text="${property.category}"></p>
+        <p th:text="${property.image_url}"></p>
+        <p th:text="${property.notes}"></p>
+        <p th:text="${property.user}"></p>
+    </div>
+
+    <div class="side-container">
+            <h3>Current Conditions</h3>
+            <p th:text="${currentWeather.description}">Description</p>
+            <h3>Temperature</h3>
+            <p th:text="${currentWeather.temperature} + ' &#8457;'">Temperature</p>
+            <h3>Feels Like</h3>
+            <p th:text="${currentWeather.feelsLike} + ' &#8457;'">Feels Like</p>
+            <h3>Wind Speed</h3>
+            <p th:text="${currentWeather.windSpeed} + ' mph'"></p>
+    </div>
+</main>
+<footer th:replace="partials :: footer"></footer>
+<div th:replace="partials :: boot-scripts"></div>
+</body>
+</html>
