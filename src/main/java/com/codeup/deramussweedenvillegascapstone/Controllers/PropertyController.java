@@ -5,6 +5,7 @@ import com.codeup.deramussweedenvillegascapstone.models.User;
 import com.codeup.deramussweedenvillegascapstone.repositories.NoteRepository;
 import com.codeup.deramussweedenvillegascapstone.repositories.PropertyRepository;
 import com.codeup.deramussweedenvillegascapstone.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,8 @@ public class PropertyController {
     private final PropertyRepository propDao;
     private final NoteRepository noteDao;
 
+    @Value("${api.filestack.key}")
+    public String apiKey;
     public PropertyController(UserRepository userDao, PropertyRepository propDao, NoteRepository noteDao) {
         this.userDao = userDao;
         this.propDao = propDao;
@@ -42,6 +45,7 @@ public class PropertyController {
     @GetMapping("/props/create")
     public String showPropForm(Model model) {
         model.addAttribute("prop", new Property());
+        model.addAttribute("apikey", apiKey);
         return "props/create";
     }
 

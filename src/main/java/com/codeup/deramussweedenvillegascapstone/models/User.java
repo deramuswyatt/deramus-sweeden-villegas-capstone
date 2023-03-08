@@ -11,11 +11,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false, length = 25)
-    private String first_name;
-
-    @Column(nullable = false, length = 25)
-    private String last_name;
+    @Column(nullable = false, length = 50)
+    private String name;
 
     @Column(nullable = false, length = 50, unique = true)
     private String username;
@@ -29,24 +26,6 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Property> property;
 
-    public User(long id, String first_name, String last_name, String username, String email, String password, List<Property> property) {
-        this.id = id;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.property = property;
-    }
-
-    public User(String first_name, String last_name, String username, String email, String password, List<Property> property) {
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.property = property;
-    }
 
     public User(long id) {
         this.id = id;
@@ -64,6 +43,23 @@ public class User {
         last_name = copy.last_name;
     }
 
+    public User(long id, String name, String username, String email, String password, List<Property> property) {
+        this.id = id;
+        this.name = name;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.property = property;
+    }
+
+    public User(String name, String username, String email, String password, List<Property> property) {
+        this.name = name;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.property = property;
+    }
+
     public long getId() {
         return id;
     }
@@ -72,20 +68,12 @@ public class User {
         this.id = id;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getName() {
+        return name;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
-    }
-
-    public String getLast_name() {
-        return last_name;
-    }
-
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getUsername() {
