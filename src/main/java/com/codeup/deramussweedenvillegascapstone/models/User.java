@@ -48,7 +48,14 @@ public class User {
         this.property = property;
     }
 
+    public User(long id) {
+        this.id = id;
+    }
+
     public User() {
+    }
+
+    public User(User user) {
     }
 
     public long getId() {

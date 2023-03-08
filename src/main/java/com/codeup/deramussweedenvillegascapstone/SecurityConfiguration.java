@@ -1,5 +1,6 @@
 package com.codeup.deramussweedenvillegascapstone;
 
+import com.codeup.deramussweedenvillegascapstone.services.UserDetailsLoader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -44,7 +45,7 @@ public class SecurityConfiguration {
                 /* Pages that can be viewed without having to log in */
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/", "/props", "/props/{id}") // anyone can see the home and the ads pages
+                .requestMatchers("/", "/props", "/props/{id}", "/register", "/props/create", "/current-weather") // anyone can see the home and the ads pages
                 .permitAll()
                 /* Pages that require authentication */
                 .and()

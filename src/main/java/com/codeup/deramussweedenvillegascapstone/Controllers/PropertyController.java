@@ -1,7 +1,7 @@
-package com.codeup.deramussweedenvillegascapstone.Controllers;
+package com.codeup.deramussweedenvillegascapstone.controllers;
 
+import com.codeup.deramussweedenvillegascapstone.models.Property;
 import com.codeup.deramussweedenvillegascapstone.models.User;
-import com.codeup.deramussweedenvillegascapstone.repositories.CategoryRepository;
 import com.codeup.deramussweedenvillegascapstone.repositories.NoteRepository;
 import com.codeup.deramussweedenvillegascapstone.repositories.PropertyRepository;
 import com.codeup.deramussweedenvillegascapstone.repositories.UserRepository;
@@ -14,59 +14,55 @@ import org.springframework.web.bind.annotation.*;
 public class PropertyController {
     private final UserRepository userDao;
     private final PropertyRepository propDao;
-//    private final EmailService emailService;
-
     private final NoteRepository noteDao;
-    private final CategoryRepository catDao;
 
-    public PropertyController(UserRepository userDao, PropertyRepository propDao, NoteRepository noteDao, CategoryRepository catDao) {
+    public PropertyController(UserRepository userDao, PropertyRepository propDao, NoteRepository noteDao) {
         this.userDao = userDao;
         this.propDao = propDao;
         this.noteDao = noteDao;
-        this.catDao = catDao;
     }
-
-    @GetMapping("/props")
-    public String showAllProps(Model model) {
-        model.addAttribute("props", propDao.findAll());
-        return "props/index";
+    //    private final EmailService emailService;
 
 
-    @GetMapping("/notes/search")
-    public String showAllProps(@RequestParam String query, Model model) {
-        model.addAttribute("props", noteDao.searchAllByTitleOrBodyOrPropertyZipContaining(query));
-        return "props/index";
-    }
 
-    @GetMapping("/props/{id}")
-    public String getOneProp(@PathVariable long id, Model model) {
-        Prop prop = propDao.findAdById(id);
-        model.addAttribute("prop", prop);
-        return "props/show";
-    }
+//    @GetMapping("/props")
+//    public String showAllProps(Model model) {
+//        model.addAttribute("props", propDao.findAll());
+//        return "props/index";
+
+//
+//    @GetMapping("/props/{id}")
+//    public String getOneProp(@PathVariable long id, Model model) {
+//        Property prop = propDao.findPropertiesById(id);
+//        model.addAttribute("prop", prop);
+//        return "props/show";
+//    }
 
     @GetMapping("/props/create")
     public String showPropForm(Model model) {
-        model.addAttribute("prop", new Prop());
+        model.addAttribute("prop", new Property());
         return "props/create";
     }
 
-    @PostMapping("/props/save")
-    public String saveProp(@ModelAttribute Prop prop) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Prop origProp = propDao.findPropById(prop.getId());
-        if(origProp == null || user.getId() == origProp.getUser().getId()) {
+    @PostMapping("/props/create")
+    public String saveProp(@ModelAttribute Property prop) {
+        User user = new User(2);
+        System.out.println("user = " + user.toString());
+
+//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        Property origProp = propDao.findPropertiesById(prop.getId());
+//        if(origProp == null || user.getId() == origProp.getUser().getId()) {
             prop.setUser(user);
             propDao.save(prop);
-            emailService.preparedAndSendProp(prop);
-        }
-        return "redirect:/props";
+//            emailService.preparedAndSendProp(prop);
+//        }
+        return "redirect:/current-weather";
     }
 
     @GetMapping("/props/{id}/edit")
     public String editPropForm(Model model, @PathVariable long id) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Prop prop = propDao.findPropById(id)
+        Property prop = propDao.findPropertiesById(id);
         if (user.getId() == prop.getUser().getId()) {
             model.addAttribute("prop", prop);
             return "props/create";
@@ -77,7 +73,7 @@ public class PropertyController {
 
     @GetMapping("/props/{id}/delete")
     public String confirmDelete(@PathVariable long id, Model model) {
-        model.addAttribute("prop", propDao.findPropById(id));
+        model.addAttribute("prop", propDao.findPropertiesById(id));
         return "props/delete";
     }
 
@@ -86,7 +82,7 @@ public class PropertyController {
         System.out.println(propId);
         System.out.println(id);
         if (id == propId) {
-            Prop prop = propDao.findPropById(id);
+            Property prop = propDao.findPropertiesById(id);
             propDao.delete(prop);
         }
         return "redirect:/props";

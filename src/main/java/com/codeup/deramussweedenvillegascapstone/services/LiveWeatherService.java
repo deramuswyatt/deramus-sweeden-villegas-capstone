@@ -53,3 +53,10 @@ public class LiveWeatherService {
     }
 }
 
+//.then(function (data) {
+//        console.log(data);
+//        var currentIconDay0 = data.weather[0].icon;
+//        var weatherIconDay0 = document.getElementById('weatherIconDay0');
+//        var img0 = document.createElement("img");
+//        img0.src = 'https://openweathermap.org/img/w/' + currentIconDay0 + '.png'
+//        weatherIconDay0.appendChild(img0);
