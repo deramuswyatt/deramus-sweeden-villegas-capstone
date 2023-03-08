@@ -1,4 +1,4 @@
-package com.codeup.deramussweedenvillegascapstone.Controllers;
+package com.codeup.deramussweedenvillegascapstone.controllers;
 
 import com.codeup.deramussweedenvillegascapstone.models.Property;
 import com.codeup.deramussweedenvillegascapstone.models.User;
@@ -48,12 +48,15 @@ public class PropertyController {
     @PostMapping("/props/create")
     public String saveProp(@ModelAttribute Property prop) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println(user.getId());
+        System.out.println(prop.getCity());
 //        Property origProp = propDao.findPropertiesById(prop.getId());
 //        if(origProp == null || user.getId() == origProp.getUser().getId()) {
             prop.setUser(user);
             propDao.save(prop);
 //            emailService.preparedAndSendProp(prop);
 //        }
+
         return "redirect:/current-weather";
     }
 
