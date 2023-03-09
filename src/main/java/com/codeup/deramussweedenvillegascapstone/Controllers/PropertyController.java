@@ -38,7 +38,7 @@ public class PropertyController {
 
     @GetMapping("/props/{id}")
     public String getOneProp(@PathVariable long id, Model model) {
-        Property prop = propDao.findPropertiesById(id);
+        Property prop = propDao.findById(id);
         model.addAttribute("prop", prop);
         return "props/show";
     }
@@ -68,7 +68,7 @@ public class PropertyController {
     @GetMapping("/props/{id}/edit")
     public String editPropForm(Model model, @PathVariable long id) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Property prop = propDao.findPropertiesById(id);
+        Property prop = propDao.findById(id);
         if (user.getId() == prop.getUser().getId()) {
             model.addAttribute("prop", prop);
             return "props/create";
@@ -79,7 +79,7 @@ public class PropertyController {
 
     @GetMapping("/props/{id}/delete")
     public String confirmDelete(@PathVariable long id, Model model) {
-        model.addAttribute("prop", propDao.findPropertiesById(id));
+        model.addAttribute("prop", propDao.findById(id));
         return "props/delete";
     }
 
@@ -88,7 +88,7 @@ public class PropertyController {
         System.out.println(propId);
         System.out.println(id);
         if (id == propId) {
-            Property prop = propDao.findPropertiesById(id);
+            Property prop = propDao.findById(id);
             propDao.delete(prop);
         }
         return "redirect:/props";

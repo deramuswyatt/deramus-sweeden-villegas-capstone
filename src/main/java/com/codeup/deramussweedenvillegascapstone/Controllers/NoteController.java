@@ -71,7 +71,7 @@ public class NoteController {
     @GetMapping("/notes/{id}/edit")
     public String editNoteForm(@PathVariable long id, Model model){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Property property = propDao.findPropertiesById(id);
+        Property property = propDao.findById(id);
         if (user.getId() == property.getUser().getId()) {
             model.addAttribute("props", property);
             return "posts/create";

@@ -26,7 +26,7 @@ public class Property {
     @Column(nullable = false, length = 100)
     private String category;
 
-    @Column(nullable = false)
+    @Column
     private String image_url;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "property")
