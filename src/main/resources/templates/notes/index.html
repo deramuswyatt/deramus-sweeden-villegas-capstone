@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{partials :: head ('Viewing all Notes')}">
+  <title>All Properties</title>
+</head>
+<body class="main-bg main-container">
+<nav th:replace="~{partials :: navbar}"></nav>
+<main class="container">
+  <div th:each="note : ${notes}">
+    <a th:href="@{/notes/{id} (id = ${note.id})}"><h1 th:text="${note.title}"></h1></a>
+
+    <p th:text="${note.body}"></p>
+    <p th:text="${note.category}"></p>
+<!--    <p th:text="${note.users.username}"></p>-->
+
+  </div>
+</main>
+<footer th:replace="~{partials :: footer}"></footer>
+<div th:replace="~{partials :: boot-scripts}"></div>
+</body>
+</html>
