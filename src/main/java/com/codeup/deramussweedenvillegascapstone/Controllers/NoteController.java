@@ -36,8 +36,9 @@ public class NoteController {
     }
 
     @PostMapping("/notes/create")
-    public String createNote(@PathVariable long id, Note note) {
-        Property property = new Property(2);
+    public String createNote(@ModelAttribute Note note) {
+        Property property = new Property(1);
+        System.out.println("note.getBody() = " + note.getBody());
 //        Property property = propDao.findPropertiesById(id);
         note.setProperty(property);
         noteDao.save(note);

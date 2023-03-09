@@ -39,8 +39,7 @@ public class User {
         email = copy.email;
         username = copy.username;
         password = copy.password;
-        first_name = copy.first_name;
-        last_name = copy.last_name;
+        name = copy.name;
     }
 
     public User(long id, String name, String username, String email, String password, List<Property> property) {

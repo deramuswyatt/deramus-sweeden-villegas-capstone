@@ -7,6 +7,8 @@
 
   <h1>Create a Note for this Property</h1>
   <form th:action="@{/notes/create}" th:method="post" th:object="${note}">
+<!--    th:href="@{/posts/{id}/edit(id=${post.id})}"-->
+<!--      th:action="@{/notes/{id} (id = ${property.id}) /create}"-->
     <div class="form-group">
       <label for="category">category</label>
       <input id="category" name="category" class="form-control" type="text" th:field="*{category}">

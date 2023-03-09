@@ -19,6 +19,7 @@ public class PropertyController {
 
     @Value("${api.filestack.key}")
     public String apiKey;
+
     public PropertyController(UserRepository userDao, PropertyRepository propDao, NoteRepository noteDao) {
         this.userDao = userDao;
         this.propDao = propDao;
