@@ -61,11 +61,8 @@ public class NoteController {
     @GetMapping("/notes/{id}")
     public String indNote(@PathVariable long id, Model model) {
         model.addAttribute("notes", noteDao.findNotesById(id));
-        model.addAttribute("notes", noteDao.findNotesById(id));
         return "notes/show";
     }
-
-
 
 
     @GetMapping("/notes/{id}/edit")
