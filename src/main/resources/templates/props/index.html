@@ -7,14 +7,13 @@
 <nav th:replace="~{partials :: navbar}"></nav>
 <main class="container">
     <div th:each="prop : ${props}">
-        <a th:href="@{/props/{id} (id = ${property.id})}"><h1 th:text="${property.street_add}"></h1></a>
-        <p th:text="${property.city}"></p>
-        <p th:text="${property.state}"></p>
-        <p th:text="${property.zip}"></p>
-        <p th:text="${property.category}"></p>
-        <p th:text="${property.image_url}"></p>
-        <p th:text="${property.notes}"></p>
-        <p th:text="${property.user.username}"></p>
+        <a th:href="@{/props/{id} (id = ${prop.id})}"><h1 th:text="${prop.street_add}"></h1></a>
+        <p th:text="${prop.city}"></p>
+        <p th:text="${prop.state}"></p>
+        <p th:text="${prop.zip}"></p>
+        <p th:text="${prop.category}"></p>
+        <p><img  th:src="${prop.image_url}" alt="control" width="200" height="200"></p>
+        <p th:text="${prop.user.username}"></p>
     </div>
 </main>
 <footer th:replace="~{partials :: footer}"></footer>

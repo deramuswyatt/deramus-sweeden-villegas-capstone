@@ -8,10 +8,7 @@ import com.codeup.deramussweedenvillegascapstone.repositories.PropertyRepository
 import com.codeup.deramussweedenvillegascapstone.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class NoteController {
@@ -27,6 +24,12 @@ public class NoteController {
         this.userDao = userDao;
         this.propDao = propDao;
         this.noteDao = noteDao;
+    }
+
+    @GetMapping("/notes")
+    public String showAllNotes(Model model) {
+        model.addAttribute("notes", noteDao.findAll());
+        return "notes/index";
     }
 
     @GetMapping("/notes/create")
@@ -46,11 +49,11 @@ public class NoteController {
     }
 
 
-    //    @GetMapping("/notes/search")
-//    public String showAllProps(@RequestParam String query, Model model) {
-//        model.addAttribute("props", noteDao.searchAllByTitleOrBodyOrPropertyZipContaining(query));
-//        return "props/index";
-//    }
+    @GetMapping("/notes/search")
+    public String showAllProps(@RequestParam String query, Model model) {
+        model.addAttribute("notes", noteDao.searchByNoteLike(query));
+        return "notes/index";
+    }
 
 
 }
