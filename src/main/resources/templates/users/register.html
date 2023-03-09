@@ -6,11 +6,8 @@
 <main class="container">
   <h1>Create an account</h1>
   <form th:action="@{/register}" th:method="POST" th:object="${user}">
-    <label for="first_name">first_name</label>
-    <input id="first_name" th:field="*{first_name}" />
-
-    <label for="last_name">last_name</label>
-    <input id="last_name" th:field="*{last_name}" />
+    <label for="name">Name</label>
+    <input id="name" th:field="*{name}" />
 
     <label for="username">Username</label>
     <input id="username" th:field="*{username}" />
