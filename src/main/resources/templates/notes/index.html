@@ -7,10 +7,12 @@
 <nav th:replace="~{partials :: navbar}"></nav>
 <main class="container">
   <div th:each="note : ${notes}">
-    <a th:href="@{/note/{id} (id = ${note.id})}"><h1 th:text="${note.title}"></h1></a>
+    <a th:href="@{/notes/{id} (id = ${note.id})}"><h1 th:text="${note.title}"></h1></a>
+
     <p th:text="${note.body}"></p>
     <p th:text="${note.category}"></p>
-<!--    <p th:text="${note.user.username}"></p>-->
+<!--    <p th:text="${note.users.username}"></p>-->
+
   </div>
 </main>
 <footer th:replace="~{partials :: footer}"></footer>
