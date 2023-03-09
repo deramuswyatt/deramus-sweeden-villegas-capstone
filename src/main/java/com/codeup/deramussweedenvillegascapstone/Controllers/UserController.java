@@ -24,14 +24,11 @@ public class UserController {
         this.repoDao = repoDao;
         this.passwordEncoder = passwordEncoder;
     }
-
-
     @GetMapping("/register")
     public String showSignupForm(Model model){
         model.addAttribute("user", new User());
         return "users/register";
     }
-
     @PostMapping("/register")
     public String saveUser(@ModelAttribute User user){
         String hash = passwordEncoder.encode(user.getPassword());
@@ -39,11 +36,9 @@ public class UserController {
         userDao.save(user);
         return "redirect:/login";
     }
-
-
-
     @GetMapping("/profile")
     public String showProfile() {return "users/profile";}
 }
+
 
 

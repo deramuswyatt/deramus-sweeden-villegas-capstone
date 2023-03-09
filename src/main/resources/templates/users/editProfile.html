@@ -22,33 +22,35 @@
         <button class="btn footer-bg w-100" type="submit">Save Changes</button>
     </form>
 
-    <form method="post" th:action="@{/profile}">
-        <!-- form fields for editing user profile -->
-        <button class="btn footer-bg w-100" type="submit">Save Changes</button>
-    </form>
-    <button class="btn btn-danger" onclick="confirmDelete()">Delete Account</button>
+<!--    <form method="post" th:action="@{/profile}">-->
+<!--        &lt;!&ndash; form fields for editing user profile &ndash;&gt;-->
+<!--        <button class="btn footer-bg w-100" type="submit">Save Changes</button>-->
+<!--    </form>-->
+<!--    <button class="btn btn-danger" onclick="confirmDelete()">Delete Account</button>-->
 
-    <script>
-        function confirmDelete() {
-            if (confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
-                // send request to server to delete user account
-                fetch('/delete-account', {method: 'DELETE'})
-                    .then(response => {
-                        if (response.ok) {
-                            // redirect to login page or display success message
-                            window.location.href = '/login';
-                        } else {
-                            // display error message
-                            alert('Failed to delete account. Please try again later.');
-                        }
-                    })
-                    .catch(error => {
-                        // display error message
-                        alert('Failed to delete account. Please try again later.');
-                    });
-            }
-        }
-    </script>
+<!--    <script>-->
+<!--        function confirmDelete() {-->
+<!--            if (confirm("Are you sure you want to delete your account? This action cannot be undone.")) {-->
+<!--                // send request to server to delete user account-->
+<!--                fetch('/delete-account', {method: 'DELETE'})-->
+<!--                    .then(response => {-->
+<!--                        if (response.ok) {-->
+<!--                            // redirect to login page or display success message-->
+<!--                            window.location.href = '/login';-->
+<!--                        } else {-->
+<!--                            // display error message-->
+<!--                            alert('Failed to delete account. Please try again later.');-->
+<!--                        }-->
+<!--                    })-->
+<!--                    .catch(error => {-->
+<!--                        // display error message-->
+<!--                        alert('Failed to delete account. Please try again later.');-->
+<!--                    });-->
+<!--            }-->
+<!--        }-->
+<!--    </script>-->
+
+
 
 </main>
 <footer th:replace="partials :: footer"></footer>
