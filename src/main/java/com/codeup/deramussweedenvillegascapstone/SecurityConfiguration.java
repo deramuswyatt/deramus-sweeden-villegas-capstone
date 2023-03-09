@@ -46,7 +46,8 @@ public class SecurityConfiguration {
                 .and()
                 .authorizeHttpRequests()
                 
-                .requestMatchers("/", "/props", "/props/{id}", "/register", "/props/create", "/current-weather", "/notes/create", "/css/**", "/js/**", "/static/**", "/notes/**") // anyone can see the home and the ads pages
+                .requestMatchers("/", "/props", "/props/{id}", "/register", "/props/create", "/current-weather", "/notes/create", "/css/**", "/js/**", "/static/**", "/props/index", "props/show") // anyone can see the home and the ads pages
+
 
                 .permitAll()
                 /* Pages that require authentication */
@@ -54,7 +55,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests()
                 .requestMatchers(
                         "/props/create", // only authenticated users can create ads
-                        "/props/{id}/edit" // only authenticated users can edit ads
+                        "/props/{id}/edit", "users/editProfile", "users/profile" // only authenticated users can edit ads
                 )
                 .authenticated()
         ;
