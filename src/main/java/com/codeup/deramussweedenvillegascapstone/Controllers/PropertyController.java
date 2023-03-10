@@ -5,6 +5,8 @@ import com.codeup.deramussweedenvillegascapstone.models.User;
 import com.codeup.deramussweedenvillegascapstone.repositories.NoteRepository;
 import com.codeup.deramussweedenvillegascapstone.repositories.PropertyRepository;
 import com.codeup.deramussweedenvillegascapstone.repositories.UserRepository;
+import com.codeup.deramussweedenvillegascapstone.services.LiveWeatherService;
+import jakarta.websocket.DeploymentException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -17,13 +19,17 @@ public class PropertyController {
     private final PropertyRepository propDao;
     private final NoteRepository noteDao;
 
+    private final LiveWeatherService liveWeatherService;
+
+
     @Value("${api.filestack.key}")
     public String apiKey;
 
-    public PropertyController(UserRepository userDao, PropertyRepository propDao, NoteRepository noteDao) {
+    public PropertyController(UserRepository userDao, PropertyRepository propDao, NoteRepository noteDao, LiveWeatherService liveWeatherService) {
         this.userDao = userDao;
         this.propDao = propDao;
         this.noteDao = noteDao;
+        this.liveWeatherService = liveWeatherService;
     }
     //    private final EmailService emailService;
 
@@ -37,9 +43,10 @@ public class PropertyController {
 
 
     @GetMapping("/props/{id}")
-    public String getOneProp(@PathVariable long id, Model model) {
+    public String getOneProp(@PathVariable long id, Model model) throws DeploymentException {
         Property prop = propDao.findById(id);
         model.addAttribute("prop", prop);
+        model.addAttribute("weather", liveWeatherService.getCurrentWeather(prop.getCity(),"us"));
         return "props/show";
     }
 

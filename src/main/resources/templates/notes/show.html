@@ -10,8 +10,10 @@
     <h1 th:text="${notes.title}"></h1>
     <p th:text="${notes.body}"></p>
     <p th:text="${notes.category}"></p>
-    <p th:text="${note.property.user}"></p>
+<!--    <p th:text="${note.property.user}"></p>-->
   </div>
+  <a th:href="@{/notes/{id}/edit(id=${notes.id})}" class="text-links">Edit Note</a>
+
 
 </main>
 <footer th:replace="partials :: footer"></footer>

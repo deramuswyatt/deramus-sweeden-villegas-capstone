@@ -7,27 +7,37 @@
 <nav th:replace="partials :: navbar"></nav>
 <main class="container">
     <div>
-        <h1 th:text="${property.street_add}"></h1>
-        <h3 th:text="|By: ${property.user.username}|"></h3>
-        <p th:text="${property.city}"></p>
-        <p th:text="${property.state}"></p>
-        <p th:text="${property.zip}"></p>
-        <p th:text="${property.category}"></p>
-        <p th:text="${property.image_url}"></p>
-        <p th:text="${property.notes}"></p>
-        <p th:text="${property.user}"></p>
+        <h1 th:text="${prop.street_add}"></h1>
+        <h3 th:text="|By: ${prop.user.username}|"></h3>
+        <p th:text="${prop.city}"></p>
+        <p th:text="${prop.state}"></p>
+        <p th:text="${prop.zip}"></p>
+        <p th:text="${prop.category}"></p>
+        <p><img  th:src="${prop.image_url}" alt="control" width="200" height="200"></p>
+<!--        <p th:text="${prop.user.note.title}"></p>-->
+<!--        <p th:text="${prop.note.body}"></p>-->
+        <p th:text="${prop.user.username}"></p>
     </div>
 
     <div class="side-container">
             <h3>Current Conditions</h3>
-            <p th:text="${currentWeather.description}">Description</p>
-            <h3>Temperature</h3>
-            <p th:text="${currentWeather.temperature} + ' &#8457;'">Temperature</p>
+            <p th:text="${weather.description}">Description</p>
+        <h3>Temperature</h3>
+            <p th:text="${weather.temperature} + ' &#8457;'">Temperature</p>
             <h3>Feels Like</h3>
-            <p th:text="${currentWeather.feelsLike} + ' &#8457;'">Feels Like</p>
+            <p th:text="${weather.feelsLike} + ' &#8457;'">Feels Like</p>
             <h3>Wind Speed</h3>
-            <p th:text="${currentWeather.windSpeed} + ' mph'"></p>
+            <p th:text="${weather.windSpeed} + ' mph'"></p>
     </div>
+
+        <a th:href="@{/props/{id}/edit(id=${prop.id})}" class="text-links">Edit Property</a>
+        <br>
+<!--    <div th:if="${#authentication.principal.id == post.user.id}">-->
+        <!--        <button th:action="@{/posts/${post.id}/edit}" th:method="post">Edit</button>-->
+        <a th:href="@{/notes/create/{id}(id=${prop.id})}" class="text-links">Create Community Note</a>
+        <!--        <a th:href="@{/posts/{id}/delete(id=${post.id})}" class="text-links">Delete</a>-->
+<!--    </div>-->
+
 </main>
 <footer th:replace="partials :: footer"></footer>
 <div th:replace="partials :: boot-scripts"></div>

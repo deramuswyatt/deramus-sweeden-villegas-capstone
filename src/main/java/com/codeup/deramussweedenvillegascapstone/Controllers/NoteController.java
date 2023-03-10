@@ -6,6 +6,7 @@ import com.codeup.deramussweedenvillegascapstone.models.User;
 import com.codeup.deramussweedenvillegascapstone.repositories.NoteRepository;
 import com.codeup.deramussweedenvillegascapstone.repositories.PropertyRepository;
 import com.codeup.deramussweedenvillegascapstone.repositories.UserRepository;
+import org.hibernate.annotations.Parameter;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,17 +34,33 @@ public class NoteController {
         return "notes/index";
     }
 
-    @GetMapping("/notes/create")
-    public String showCreateNoteForm(Model model) {
-        model.addAttribute("note", new Note());
+//    @GetMapping("/notes/create")
+//    public String showCreateNoteForm(Model model) {
+//        model.addAttribute("note", new Note());
+//        return "notes/create";
+//    }
+
+
+    @GetMapping("notes/create/{id}")
+    public String createNoteForm(@PathVariable long id, Model model){
+        Property property = propDao.findById(id);
+        Note note = new Note();
+        note.setProperty(property);
+        model.addAttribute("note", note);
+        model.addAttribute("propId", id);
         return "notes/create";
     }
 
     @PostMapping("/notes/create")
-    public String createNote(@ModelAttribute Note note) {
-        Property property = new Property(1);
-        System.out.println("note.getBody() = " + note.getBody());
+    public String createNote(@RequestParam(name = "propId") long id, @ModelAttribute Note note) {
+//        Property property = propDao.findById(propId);
+//        System.out.println("id = " + propId);
+//        System.out.println("property.getCategory() = " + property.getCategory());
 //        Property property = propDao.findPropertiesById(id);
+//        note.setProperty(property);
+//        noteDao.save(note);
+//        Property property = propDao.findById(5);
+      Property property = propDao.findById(id);
         note.setProperty(property);
         noteDao.save(note);
         return "redirect:/notes";
@@ -51,8 +68,9 @@ public class NoteController {
 
 
     @GetMapping("/notes/search")
-    public String showAllProps(@RequestParam String query, Model model) {
-        model.addAttribute("notes", noteDao.searchByNoteLike(query));
+    public String showAllProps(@RequestParam(name = "query") String query, Model model) {
+//        model.addAttribute("notes", noteDao.searchByNoteLike(query));
+        model.addAttribute("notes", noteDao.searchByTitleLike(query));
         return "notes/index";
     }
 
@@ -66,15 +84,11 @@ public class NoteController {
 
 
     @GetMapping("/notes/{id}/edit")
-    public String editNoteForm(@PathVariable long id, Model model){
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Property property = propDao.findById(id);
-        if (user.getId() == property.getUser().getId()) {
-            model.addAttribute("props", property);
-            return "posts/create";
-        } else {
-            return "redirect:/posts";
-        }
+    public String editNoteForm(Model model, @PathVariable long id) {
+        Note note = noteDao.findNotesById(id);
+        System.out.println("note.getBody() = " + note.getBody());
+        model.addAttribute("notes", note);
+            return "notes/create";
     }
 
 

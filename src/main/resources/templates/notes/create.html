@@ -21,7 +21,7 @@
       <label for="body">body</label>
       <input id="body" name="body" class="form-control" type="text" th:field="*{body}">
     </div>
-    <!--        <input type="hidden" th:field="*{id}">-->
+      <input type="hidden" name="propId" th:value="${propId}">
     <input type="submit" class="btn btn-block btn-primary">
   </form>
 </main>
