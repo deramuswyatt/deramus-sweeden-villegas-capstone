@@ -35,9 +35,10 @@
                     <a class="nav-link" href="/props">All Properties</a>
                 </li>
                 <li>
-                    <form class="form-inline" action="/notes/search" method="POST">
-                        <label for="search_notes"></label>
-                        <input type="text" name="search_notes" id="search_notes" placeholder="Search All Community Notes">
+                    <form class="form-inline" th:action="@{/notes/search{param}(param=${query})}" method="POST">
+<!--                        "@{/searchbook(param=${book?.getBookTitle()})}"-->
+                        <label for="query"></label>
+                        <input type="text" name="query" id="query" placeholder="Search All Community Notes">
                         <button class="btn btn-info my-2 my-sm-0" type="submit">Find</button>
                     </form>
                 </li>

@@ -1,5 +1,6 @@
 package com.codeup.deramussweedenvillegascapstone.controllers;
 
+import com.codeup.deramussweedenvillegascapstone.models.CurrentWeather;
 import com.codeup.deramussweedenvillegascapstone.services.LiveWeatherService;
 import jakarta.websocket.DeploymentException;
 import org.springframework.stereotype.Controller;

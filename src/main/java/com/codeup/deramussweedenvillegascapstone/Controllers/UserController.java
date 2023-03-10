@@ -1,5 +1,7 @@
 package com.codeup.deramussweedenvillegascapstone.controllers;
 
+import com.codeup.deramussweedenvillegascapstone.models.Note;
+import com.codeup.deramussweedenvillegascapstone.models.Property;
 import com.codeup.deramussweedenvillegascapstone.models.User;
 import com.codeup.deramussweedenvillegascapstone.repositories.NoteRepository;
 import com.codeup.deramussweedenvillegascapstone.repositories.PropertyRepository;
@@ -16,13 +18,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class UserController {
     private final UserRepository userDao;
     private final NoteRepository noteDao;
-    private final PropertyRepository repoDao;
+    private final PropertyRepository propDao;
     private final PasswordEncoder passwordEncoder;
 
     public UserController(UserRepository userDao, NoteRepository noteDao, PropertyRepository repoDao, PasswordEncoder passwordEncoder) {
         this.userDao = userDao;
         this.noteDao = noteDao;
-        this.repoDao = repoDao;
+        this.propDao = repoDao;
         this.passwordEncoder = passwordEncoder;
     }
     @GetMapping("/register")
@@ -39,6 +41,11 @@ public class UserController {
     }
 
     @GetMapping("/profile")
+    public String showProfile(Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Property prop = propDao.findById(user.getId());
+        model.addAttribute("props", prop);
+        return "users/profile";}
     public String showProfile() {return "users/profile";}
 
 
@@ -65,7 +72,6 @@ public class UserController {
         SecurityContextHolder.clearContext();
         return "redirect:/";
     }
-
 
 }
 

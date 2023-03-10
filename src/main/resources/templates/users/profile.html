@@ -18,6 +18,12 @@
 
 <!--    How to bring in carousel of properties here? This should come from Wyatt's properties page that he is currently working on-->
 
+    <div th:each="prop : ${props}">
+        <a th:href="@{/props/{id} (id = ${prop.id})}"><h1 th:text="${prop.street_add}"></h1></a>
+        <p th:text="${prop.category}"></p>
+        <p><img  th:src="${prop.image_url}" alt="control" width="200" height="200"></p>
+    </div>
+
 </main>
 <footer th:replace="partials :: footer"></footer>
 <div th:replace="partials :: boot-scripts"></div>

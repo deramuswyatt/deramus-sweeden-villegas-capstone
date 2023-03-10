@@ -18,6 +18,7 @@ public class CurrentWeather implements Serializable {
         this.windSpeed = windSpeed;
     }
 
+
     public String getDescription() {
         return description;
     }
