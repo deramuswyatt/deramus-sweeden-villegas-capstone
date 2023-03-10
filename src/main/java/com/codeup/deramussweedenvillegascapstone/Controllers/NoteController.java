@@ -31,6 +31,7 @@ public class NoteController {
     @GetMapping("/notes")
     public String showAllNotes(Model model) {
         model.addAttribute("notes", noteDao.findAll());
+        model.addAttribute("props", propDao.findAll());
         return "notes/index";
     }
 
@@ -68,11 +69,17 @@ public class NoteController {
 
 
     @GetMapping("/notes/search")
-    public String showAllProps(@RequestParam(name = "query") String query, Model model) {
+    public String showAllProps(@RequestParam(name="q") String query, Model model) {
 //        model.addAttribute("notes", noteDao.searchByNoteLike(query));
         model.addAttribute("notes", noteDao.searchByTitleLike(query));
         return "notes/index";
     }
+
+//        /search/properties?q=600+navarro
+//@RequestParam(name="q") String Query
+
+
+
 
 
 
@@ -86,9 +93,16 @@ public class NoteController {
     @GetMapping("/notes/{id}/edit")
     public String editNoteForm(Model model, @PathVariable long id) {
         Note note = noteDao.findNotesById(id);
-        System.out.println("note.getBody() = " + note.getBody());
         model.addAttribute("notes", note);
-            return "notes/create";
+            return "notes/edit-note";
+    }
+
+
+
+    @PostMapping("/notes/edit")
+    public String editNote(@ModelAttribute Note note) {
+        noteDao.save(note);
+        return "redirect:/notes";
     }
 
 

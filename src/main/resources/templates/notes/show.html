@@ -10,7 +10,9 @@
     <h1 th:text="${notes.title}"></h1>
     <p th:text="${notes.body}"></p>
     <p th:text="${notes.category}"></p>
-<!--    <p th:text="${note.property.user}"></p>-->
+    <p th:text="${notes.property.zip}"></p>
+    <p th:text="${notes.property.city}"></p>
+    <p th:text="${notes.property.state}"></p>
   </div>
   <a th:href="@{/notes/{id}/edit(id=${notes.id})}" class="text-links">Edit Note</a>
 
