@@ -39,12 +39,40 @@ public class UserController {
         userDao.save(user);
         return "redirect:/login";
     }
+
     @GetMapping("/profile")
     public String showProfile(Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Property prop = propDao.findById(user.getId());
         model.addAttribute("props", prop);
         return "users/profile";}
+    public String showProfile() {return "users/profile";}
+
+
+//    the following code is for editing user's profile details and deleting their account:
+    @GetMapping("/profile/edit")
+    public String showEditProfileForm(Model model) {
+        User user = userDao.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
+        model.addAttribute("user", user);
+        return "users/edit-profile"; //what will the return be?
+    }
+
+    @PostMapping("/profile/edit")
+    public String saveEditedProfile(@ModelAttribute User user) {
+        userDao.save(user);
+        return "redirect:/profile";
+    }
+
+    @PostMapping("/profile/delete")
+    public String deleteProfile() {
+        User user = userDao.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
+//        noteDao.deleteByUser(user); //I do not know if this needs to be here
+//        repoDao.deleteByUser(user); //I do not know if this needs to be here
+        userDao.delete(user);
+        SecurityContextHolder.clearContext();
+        return "redirect:/";
+    }
+
 }
 
 

@@ -16,7 +16,7 @@
         <button class="btn-link btn" style="margin-top: 8px">Logout</button>
     </form>
 
-    <!--How to bring in carousel of properties here? This should come from Wyatt's properties page that he is currently working on-->
+<!--    How to bring in carousel of properties here? This should come from Wyatt's properties page that he is currently working on-->
 
     <div th:each="prop : ${props}">
         <a th:href="@{/props/{id} (id = ${prop.id})}"><h1 th:text="${prop.street_add}"></h1></a>
