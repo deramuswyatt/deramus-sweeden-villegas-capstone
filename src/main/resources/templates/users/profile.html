@@ -8,9 +8,13 @@
     <h2 th:text="|Hello, ${#authentication.principal.username}!|"></h2>
     <h3 th:text="|Email: ${#authentication.principal.email}|"></h3>
     <h3 th:text="|User ID: ${#authentication.principal.id}|"></h3>
-    <a class="btn footer-bg w-100" type="submit">Edit profile</a>
+
+
+    <a th:href="@{/profile/edit}" class="text-links">Edit Profile</a>
+
 
     <!--Edit profile button here (below profile details). -->
+
 
     <form th:action="@{/logout}" th:method="post">
         <button class="btn-link btn" style="margin-top: 8px">Logout</button>
