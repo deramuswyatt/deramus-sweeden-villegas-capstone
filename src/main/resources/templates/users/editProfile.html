@@ -6,22 +6,25 @@
 <main class="container">
     <h1>Edit Your User Profile</h1>
     <h2 th:text="|Hello, ${#authentication.principal.username}!|"></h2>
-    <form method="post" th:action="@{/profile}">
+    <form method="post" th:action="@{/profile/edit}">
+
+        <div class="form-group">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" th:value="${#authentication.principal.name}">
+        </div>
+
         <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" value="${#authentication.principal.email}" required>
+            <input type="email" id="email" name="email" th:value="${#authentication.principal.email}" required>
         </div>
-        <div class="form-group">
-            <label for="firstName">First Name:</label>
-            <input type="text" id="firstName" name="firstName" value="${#authentication.principal.firstName}">
-        </div>
-        <div class="form-group">
-            <label for="lastName">Last Name:</label>
-            <input type="text" id="lastName" name="lastName" value="${#authentication.principal.lastName}">
-        </div>
+
         <button class="btn footer-bg w-100" type="submit">Save Changes</button>
     </form>
 
+
+
+
+    <!--    can implement this code below later if we decide to add delete functionality. will need to see if i can use script tags. -->
 <!--    <form method="post" th:action="@{/profile}">-->
 <!--        &lt;!&ndash; form fields for editing user profile &ndash;&gt;-->
 <!--        <button class="btn footer-bg w-100" type="submit">Save Changes</button>-->
