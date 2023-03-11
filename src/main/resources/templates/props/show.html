@@ -42,8 +42,8 @@
 <!--    <div th:if="${#authentication.principal.id == post.user.id}">-->
         <!--        <button th:action="@{/posts/${post.id}/edit}" th:method="post">Edit</button>-->
         <a th:href="@{/notes/create/{id}(id=${prop.id})}" class="text-links">Create Community Note</a>
-        <!--        <a th:href="@{/posts/{id}/delete(id=${post.id})}" class="text-links">Delete</a>-->
-<!--    </div>-->
+    <br>
+        <a th:href="@{/props/{id}/delete(id=${prop.id})}" class="text-links">Delete Property</a>
 
 </main>
 <footer th:replace="partials :: footer"></footer>
