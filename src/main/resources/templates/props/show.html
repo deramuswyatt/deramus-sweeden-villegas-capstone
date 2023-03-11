@@ -30,13 +30,20 @@
             <p th:text="${weather.windSpeed} + ' mph'"></p>
     </div>
 
+<!--    Notes listing-->
+    <div th:each="note : ${notes}">
+        <a th:href="@{/notes/{id} (id = ${note.id})}"><h1 th:text="${note.title}"></h1></a>
+        <p th:text="${note.body}"></p>
+        <p th:text="${note.category}"></p>
+    </div>
+
         <a th:href="@{/props/{id}/edit(id=${prop.id})}" class="text-links">Edit Property</a>
         <br>
 <!--    <div th:if="${#authentication.principal.id == post.user.id}">-->
         <!--        <button th:action="@{/posts/${post.id}/edit}" th:method="post">Edit</button>-->
         <a th:href="@{/notes/create/{id}(id=${prop.id})}" class="text-links">Create Community Note</a>
-        <!--        <a th:href="@{/posts/{id}/delete(id=${post.id})}" class="text-links">Delete</a>-->
-<!--    </div>-->
+    <br>
+        <a th:href="@{/props/{id}/delete(id=${prop.id})}" class="text-links">Delete Property</a>
 
 </main>
 <footer th:replace="partials :: footer"></footer>

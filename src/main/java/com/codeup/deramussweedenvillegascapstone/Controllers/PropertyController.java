@@ -1,5 +1,6 @@
 package com.codeup.deramussweedenvillegascapstone.controllers;
 
+import com.codeup.deramussweedenvillegascapstone.models.Note;
 import com.codeup.deramussweedenvillegascapstone.models.Property;
 import com.codeup.deramussweedenvillegascapstone.models.User;
 import com.codeup.deramussweedenvillegascapstone.repositories.NoteRepository;
@@ -45,7 +46,9 @@ public class PropertyController {
     @GetMapping("/props/{id}")
     public String getOneProp(@PathVariable long id, Model model) throws DeploymentException {
         Property prop = propDao.findById(id);
+        Note note = noteDao.findNotesById(id);
         model.addAttribute("prop", prop);
+        model.addAttribute("notes", note);
         model.addAttribute("weather", liveWeatherService.getCurrentWeather(prop.getCity(),"us"));
         return "props/show";
     }
@@ -60,16 +63,16 @@ public class PropertyController {
     @PostMapping("/props/create")
     public String saveProp(@ModelAttribute Property prop) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        System.out.println(user.getId());
-        System.out.println(prop.getCity());
-//        Property origProp = propDao.findPropertiesById(prop.getId());
-//        if(origProp == null || user.getId() == origProp.getUser().getId()) {
+//        System.out.println(user.getId());
+//        System.out.println(prop.getCity());
+        Property origProp = propDao.findById(prop.getId());
+        if(origProp == null || user.getId() == origProp.getUser().getId()) {
             prop.setUser(user);
             propDao.save(prop);
 //            emailService.preparedAndSendProp(prop);
-//        }
+        }
 
-        return "redirect:/current-weather";
+        return "redirect:/props";
     }
 
     @GetMapping("/props/{id}/edit")

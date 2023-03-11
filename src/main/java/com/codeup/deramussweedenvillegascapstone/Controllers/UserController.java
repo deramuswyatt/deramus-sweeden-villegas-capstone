@@ -46,8 +46,9 @@ public class UserController {
     @GetMapping("/profile")
     public String showProfile(Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Property prop = propDao.findById(user.getId());
-        model.addAttribute("props", prop);
+//        Property prop = propDao.findById(user.getId());
+//        Property prop = propDao.findAll();
+        model.addAttribute("props", propDao.findAll());
         return "users/profile";}
     public String showProfile() {return "users/profile";}
 
