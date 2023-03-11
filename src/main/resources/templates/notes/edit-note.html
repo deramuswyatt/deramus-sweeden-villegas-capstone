@@ -19,7 +19,7 @@
       <label for="body">body</label>
       <input id="body" name="body" class="form-control" type="text" th:field="*{body}">
     </div>
-    <input type="hidden" name="noteId" th:value="${notes.id}">
+    <input type="hidden" name="noteId" th:value="*{prop.id}">
     <input type="submit" class="btn btn-block btn-primary">
   </form>
 </main>
