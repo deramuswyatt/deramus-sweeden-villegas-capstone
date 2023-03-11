@@ -1,5 +1,6 @@
 package com.codeup.deramussweedenvillegascapstone.controllers;
 
+import com.codeup.deramussweedenvillegascapstone.models.Note;
 import com.codeup.deramussweedenvillegascapstone.models.Property;
 import com.codeup.deramussweedenvillegascapstone.models.User;
 import com.codeup.deramussweedenvillegascapstone.repositories.NoteRepository;
@@ -45,7 +46,9 @@ public class PropertyController {
     @GetMapping("/props/{id}")
     public String getOneProp(@PathVariable long id, Model model) throws DeploymentException {
         Property prop = propDao.findById(id);
+        Note note = noteDao.findNotesById(id);
         model.addAttribute("prop", prop);
+        model.addAttribute("notes", note);
         model.addAttribute("weather", liveWeatherService.getCurrentWeather(prop.getCity(),"us"));
         return "props/show";
     }
