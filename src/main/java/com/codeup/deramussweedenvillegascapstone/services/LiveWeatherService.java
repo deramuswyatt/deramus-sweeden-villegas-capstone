@@ -43,7 +43,7 @@ public class LiveWeatherService {
         try {
             JsonNode root = objectMapper.readTree(response.getBody());
 //            System.out.println("root = " + root.toString());
-            return new CurrentWeather(root.path("weather").get(0).path("main").asText(),
+            return new CurrentWeather(root.path("weather").get(0).path("icon").asText(),
                     BigDecimal.valueOf(root.path("main").path("temp").asDouble()),
                     BigDecimal.valueOf(root.path("main").path("feels_like").asDouble()),
                     BigDecimal.valueOf(root.path("wind").path("speed").asDouble()));
@@ -52,6 +52,9 @@ public class LiveWeatherService {
         }
     }
 }
+
+//            return new CurrentWeather(root.path("weather").get(0).path("main").asText(),
+
 
 //.then(function (data) {
 //        console.log(data);

@@ -48,6 +48,9 @@ public class UserController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //        Property prop = propDao.findById(user.getId());
 //        Property prop = propDao.findAll();
+//        model.addAttribute("props", propDao.findByUser_Id(user.getId()));
+//        System.out.println("propDao.searchByPropertyLike(user.getId()) = " + propDao.searchByPropertyLike(user.getId()));
+//        model.addAttribute("props", propDao.searchByPropertyLike(user.getId()));
         model.addAttribute("props", propDao.findAll());
         return "users/profile";}
     public String showProfile() {return "users/profile";}

@@ -7,12 +7,17 @@
 
   <h1>Create a Note for this Property</h1>
   <form th:action="@{/notes/create}" th:method="post" th:object="${note}">
-<!--    th:href="@{/posts/{id}/edit(id=${post.id})}"-->
-<!--      th:action="@{/notes/{id} (id = ${property.id}) /create}"-->
-    <div class="form-group">
-      <label for="category">category</label>
-      <input id="category" name="category" class="form-control" type="text" th:field="*{category}">
-    </div>
+      <div class="form-group">
+          <label for="category">category</label>
+          <select th:field="*{category}" id="category" name="category" required>
+              <option value="safety">Safety</option>
+              <option value="free">Free</option>
+              <option value="services">Services</option>
+              <option value="lost-pet">Lost Pet</option>
+              <option value="for-sale">For Sale</option>
+              <option value="general">General</option>
+          </select>
+      </div>
     <div class="form-group">
       <label for="title">title</label>
       <textarea id="title" name="title" class="form-control" type="text" th:field="*{title}" ></textarea>
