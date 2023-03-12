@@ -7,9 +7,20 @@
 
   <h1>Create a Note for this Property</h1>
   <form th:action="@{/notes/edit}" th:method="post" th:object="${notes}">
+<!--    <div class="form-group">-->
+<!--      <label for="category">category</label>-->
+<!--      <input id="category" name="category" class="form-control" type="text" th:field="*{category}">-->
+<!--    </div>-->
     <div class="form-group">
       <label for="category">category</label>
-      <input id="category" name="category" class="form-control" type="text" th:field="*{category}">
+      <select th:field="*{category}" id="category" name="category" required>
+        <option value="safety">Safety</option>
+        <option value="free">Free</option>
+        <option value="services">Services</option>
+        <option value="lost-pet">Lost Pet</option>
+        <option value="for-sale">For Sale</option>
+        <option value="general">General</option>
+      </select>
     </div>
     <div class="form-group">
       <label for="title">title</label>
@@ -19,7 +30,8 @@
       <label for="body">body</label>
       <input id="body" name="body" class="form-control" type="text" th:field="*{body}">
     </div>
-    <input type="hidden" name="noteId" th:value="*{prop.id}">
+    <input type="hidden" name="propId" th:field="*{property}">
+    <input type="hidden" name="noteId" th:field="*{id}">
     <input type="submit" class="btn btn-block btn-primary">
   </form>
 </main>

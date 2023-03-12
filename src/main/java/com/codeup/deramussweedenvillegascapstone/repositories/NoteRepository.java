@@ -10,6 +10,8 @@ import java.util.List;
 public interface NoteRepository extends JpaRepository<Note, Long> {
     Note findNotesById(long id);
 
+    Note findById(long id);
+
     @Query("from Note a where a.title LIKE  %:term% OR a.body LIKE  %:term% OR a.category like %:term%")
     List<Note> searchByTitleLike(@Param("term") String term);
 

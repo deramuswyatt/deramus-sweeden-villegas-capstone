@@ -14,7 +14,9 @@
     <p th:text="${notes.property.city}"></p>
     <p th:text="${notes.property.state}"></p>
   </div>
-<!--  <a th:href="@{/notes/{id}/edit(id=${notes.id})}" class="text-links">Edit Note</a>-->
+  <a th:href="@{/notes/{id}/edit(id=${notes.id})}" class="text-links">Edit Note</a>
+  <a th:href="@{/notes/{id}/delete(id=${notes.id})}" class="text-links">Delete Note</a>
+
 
 
 </main>
