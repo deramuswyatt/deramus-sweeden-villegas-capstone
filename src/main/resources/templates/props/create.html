@@ -9,8 +9,19 @@
     <form th:action="@{/props/create}" th:method="post" th:object="${prop}">
         <div class="form-group">
             <label for="category">category</label>
-            <input id="category" name="category" class="form-control" type="text" th:field="*{category}">
+            <select th:field="*{category}" id="category" name="category" required>
+            <option value="home">Home</option>
+            <option value="rental">Rental</option>
+            <option value="vacant">Vacant</option>
+            <option value="vacation-home">Vacation Home</option>
+            <option value="im-interested">I'm Interested</option>
+            <option value="air-bnb">My AirBnB</option>
+        </select>
         </div>
+<!--        <div class="form-group">-->
+<!--            <label for="category">category</label>-->
+<!--            <input id="category" name="category" class="form-control" type="text" th:field="*{category}">-->
+<!--        </div>-->
         <div class="form-group">
             <label for="street_add">street_add</label>
             <textarea id="street_add" name="street_add" class="form-control" type="text" th:field="*{street_add}" ></textarea>

@@ -23,6 +23,7 @@ public class PropertyController {
     private final LiveWeatherService liveWeatherService;
 
 
+
     @Value("${api.filestack.key}")
     public String apiKey;
 
@@ -45,10 +46,11 @@ public class PropertyController {
 
     @GetMapping("/props/{id}")
     public String getOneProp(@PathVariable long id, Model model) throws DeploymentException {
+//        Property prop = propDao.findByUser_Id(id);
         Property prop = propDao.findById(id);
-        Note note = noteDao.findNotesById(id);
+//        Note note = noteDao.findNotesById(id);
         model.addAttribute("prop", prop);
-        model.addAttribute("notes", note);
+        model.addAttribute("notes", noteDao.findAll());
         model.addAttribute("weather", liveWeatherService.getCurrentWeather(prop.getCity(),"us"));
         return "props/show";
     }
