@@ -19,12 +19,18 @@
         <p th:text="${prop.user.username}"></p>
     </div>
 
-    <div class="side-container">
+    <div id="current" class="side-container">
             <h3>Current Conditions</h3>
-            <p th:text="${weather.description}">Description</p>
-        <h3>Temperature</h3>
-            <p th:text="${weather.temperature} + ' &#8457;'">Temperature</p>
-            <h3>Feels Like</h3>
+<!--            <p th:text="${weather.description}">Description</p>-->
+<!--            <span type="hidden" id="icon" th:text="${weather.description}"></span>-->
+            <input type="hidden" th:value="${weather.description}" id="icon">
+
+        <p id="wxIcon"></p>
+            <h3>Temperature</h3>
+            <p id="visibleTemp" th:text="${weather.temperature} + ' &#8457;'">Temperature</p>
+            <input type="hidden" id="temp" th:value="${weather.temperature}">
+        <p id="wxTempWarning" style="color:red"></p>
+        <h3>Feels Like</h3>
             <p th:text="${weather.feelsLike} + ' &#8457;'">Feels Like</p>
             <h3>Wind Speed</h3>
             <p th:text="${weather.windSpeed} + ' mph'"></p>
@@ -32,10 +38,13 @@
 
 <!--    Notes listing-->
     <div th:each="note : ${notes}">
+        <div th:if="${prop.id} == ${note.property.id} ">
         <a th:href="@{/notes/{id} (id = ${note.id})}"><h1 th:text="${note.title}"></h1></a>
         <p th:text="${note.body}"></p>
         <p th:text="${note.category}"></p>
+        </div>
     </div>
+
 
         <a th:href="@{/props/{id}/edit(id=${prop.id})}" class="text-links">Edit Property</a>
         <br>
@@ -48,5 +57,12 @@
 </main>
 <footer th:replace="partials :: footer"></footer>
 <div th:replace="partials :: boot-scripts"></div>
+<!-- Jquery JS -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<!-- Custom JS -->
+<!--<script type="application/x-javascript" src="src/main/resources/static/js/main.js"></script>-->
+<script src="/js/main.js" type="application/javascript"></script>
+<link rel="stylesheet" href="/css/wxstyle.css" type="text/css">
 </body>
 </html>

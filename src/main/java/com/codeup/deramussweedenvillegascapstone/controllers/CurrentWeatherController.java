@@ -3,6 +3,7 @@ package com.codeup.deramussweedenvillegascapstone.controllers;
 import com.codeup.deramussweedenvillegascapstone.models.CurrentWeather;
 import com.codeup.deramussweedenvillegascapstone.services.LiveWeatherService;
 import jakarta.websocket.DeploymentException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class CurrentWeatherController {
 
     private final LiveWeatherService liveWeatherService;
+
+    @Value("${api.openweathermap.js.key}")
+    public String apiKey;
 
     public CurrentWeatherController(LiveWeatherService liveWeatherService) {
         this.liveWeatherService = liveWeatherService;
@@ -21,6 +25,7 @@ public class CurrentWeatherController {
 //        model.addAttribute("currentWeather", currentWeather);
 
         model.addAttribute("currentWeather", liveWeatherService.getCurrentWeather("Austin","us"));
+        model.addAttribute("api", apiKey);
         return "/current-weather";
     }
 }

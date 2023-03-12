@@ -47,7 +47,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests()
                 
 
-                .requestMatchers("/", "/props", "/props/{id}", "/register", "/props/create", "/current-weather", "/notes/create/{id}", "/css/**", "/js/**", "/static/**", "/props/index", "/props/show", "/notes/search", "/notes", "/index", "/notes/index", "notes/show", "/notes/**", "users/profile", "/about", "/notes/{id}/edit", "/props/{id}/delete") // anyone can see the home and the ads pages
+                .requestMatchers("/", "/props", "/props/{id}", "/register", "/props/create", "/current-weather", "/notes/create/{id}", "/css/**", "/js/**", "/static/**", "/props/index", "/props/show", "/notes/search", "/notes", "/index", "/notes/index", "notes/show", "/notes/**", "users/profile", "/about", "/notes/{id}/edit", "/props/{id}/delete", "props/**") // anyone can see the home and the ads pages
 
 
                 .permitAll()
@@ -56,8 +56,8 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests()
                 .requestMatchers(
 
-                        "/props/create", // only authenticated users can create ads
-                        "/props/{id}/edit",  // only authenticated users can edit ads
+//                        "/props/create", // only authenticated users can create ads
+//                        "/props/{id}/edit",  // only authenticated users can edit ads
 
                         "/props/create",  // only authenticated users can create ads
                         "/props/{id}/edit", "/props/{id}/delete", "/props/delete", "/profile", "/profile/**" // only authenticated users can edit ads
