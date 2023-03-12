@@ -56,8 +56,6 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests()
                 .requestMatchers(
 
-                        "/props/create", // only authenticated users can create ads
-                        "/props/{id}/edit",  // only authenticated users can edit ads
 
                         "/props/create",  // only authenticated users can create ads
                         "/props/{id}/edit", "/props/{id}/delete", "/props/delete", "/profile", "/profile/**" // only authenticated users can edit ads
