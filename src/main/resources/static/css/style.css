@@ -1,6 +1,6 @@
 .main-bg {
-    background: #F7F3E3;
-    color: #2B2118
+    background: whitesmoke;
+    color: #2B2118;
 }
 
 .main-container {
@@ -8,32 +8,67 @@
     min-height: 100vh;
     flex-direction: column;
     justify-content: flex-start;
-    font-family: 'IBM Plex Serif', serif;
 }
 
-.nav-bg {
-    background: #C73E1D;
-    color: #F7F3E3;
+* {
+    font-family: 'Josefin Sans', sans-serif;
 }
 
-.nav-bg .logo-font {
-    text-shadow: 2px 2px #2B2118;
+/*.nav-bg {*/
+/*    background: #C73E1D;*/
+/*    color: #F7F3E3;*/
+/*}*/
+
+/*.nav-bg .logo-font {*/
+/*    text-shadow: 2px 2px #2B2118;*/
+/*}*/
+
+/*.logo-font {*/
+/*    font-family: 'Henny Penny', cursive;*/
+/*}*/
+
+/*.nav-bg a:link, .nav-bg a:visited {*/
+/*    color: #F7F3E3;*/
+/*}*/
+
+/*.nav-bg a:active, .nav-bg a:hover {*/
+/*    color: #0090C1;*/
+/*}*/
+
+/*.footer-bg {*/
+/*    background: #0090C1;*/
+/*    color: #F7F3E3;*/
+/*}*/
+
+.btn {
+    border-radius: 0;
 }
 
-.logo-font {
-    font-family: 'Henny Penny', cursive;
+.btn:hover {
+    background-color: darkorange;
+    border: 1px solid darkorange;
 }
 
-.nav-bg a:link, .nav-bg a:visited {
-    color: #F7F3E3;
+a.nav-link {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
 }
 
-.nav-bg a:active, .nav-bg a:hover {
-    color: #0090C1;
+a.nav-link:hover {
+    color: darkorange;
 }
 
-.footer-bg {
-    background: #0090C1;
-    color: #F7F3E3;
+.container h1, .text-center {
+    text-align: center;
+    margin: 20px;
 }
 
+/*this next section turns the nav links into hamburger menu on screens less than 500px -- see if we like this*/
+@media screen and (max-width: 500px) {
+    .navbar a {
+        float: none;
+        display: block;
+        width: 100%;
+        text-align: left;
+    }}
