@@ -13,8 +13,8 @@ public class CurrentWeatherController {
 
     private final LiveWeatherService liveWeatherService;
 
-    @Value("${api.openweathermap.js.key}")
-    public String apiKey;
+//    @Value("${api.mapbox.autofill}")
+//    public String apiKey;
 
     public CurrentWeatherController(LiveWeatherService liveWeatherService) {
         this.liveWeatherService = liveWeatherService;
@@ -25,7 +25,7 @@ public class CurrentWeatherController {
 //        model.addAttribute("currentWeather", currentWeather);
 
         model.addAttribute("currentWeather", liveWeatherService.getCurrentWeather("Austin","us"));
-        model.addAttribute("api", apiKey);
+//        model.addAttribute("api", apiKey);
         return "/current-weather";
     }
 }

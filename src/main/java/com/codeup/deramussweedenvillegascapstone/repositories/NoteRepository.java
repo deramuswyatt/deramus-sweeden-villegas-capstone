@@ -12,7 +12,11 @@ public interface NoteRepository extends JpaRepository<Note, Long> {
 
     Note findById(long id);
 
-    @Query("from Note a where a.title LIKE  %:term% OR a.body LIKE  %:term% OR a.category like %:term%")
+    //This one works!
+//    @Query("from Note a where a.title LIKE  %:term% OR a.body LIKE  %:term% OR a.category like %:term%")
+//    List<Note> searchByTitleLike(@Param("term") String term);
+
+    @Query("from Note a where a.title LIKE  %:term% OR a.body LIKE  %:term% OR a.category like %:term% OR a.property.city LIKE %:term% OR a.property.state LIKE %:term% OR a.property.street_add LIKE %:term%")
     List<Note> searchByTitleLike(@Param("term") String term);
 
 //    @Query("from Note a where a.title LIKE %:term%")
