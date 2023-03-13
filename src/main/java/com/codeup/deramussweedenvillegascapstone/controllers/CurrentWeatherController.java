@@ -13,8 +13,6 @@ public class CurrentWeatherController {
 
     private final LiveWeatherService liveWeatherService;
 
-//    @Value("${api.openweathermap.js.key}")
-//    public String apiKey;
 
     public CurrentWeatherController(LiveWeatherService liveWeatherService) {
         this.liveWeatherService = liveWeatherService;

@@ -2,6 +2,57 @@
 
 $(function () {
 
+    function getImage() {
+        const icon = $("#icon").val();
+        // console.log(icon);
+        var weatherIcon = '<span><img src="http://openweathermap.org/img/w/' + icon + '.png"' + ' alt="img"' + 'alt="control" width="100" height="100"></span>'
+        $("#wxIcon").html(weatherIcon);
+    }
+    getImage();
+
+    function tempWarning() {
+        const temp = $("#temp").val();
+        // parseFloat(temp)
+        // console.log(temp);
+        if (temp > 90.00) {
+            var warmWarning = '<h4>Hot Weather Related:</h4>' + '<ul class="list-group list-group-flush">' +
+                '<li class="list-group-item">If property is located on exansive soil, consider watering foundation.</li>' +
+                '<li class="list-group-item">If property has elderly occupants, ensure they have adequate cooling/ventilation.</li>' +
+                '<li class="list-group-item">Keep AC between 75-78 degrees to prevent coil from freezing.</li>' +
+                '<li class="list-group-item">Watch pets for signs of heat injury.</li>' +
+                '</ul>'
+            $("#wxTempWarning").html(warmWarning);
+        }
+        if (temp < 32.00){
+            var coldWarning = '<h4>Cold Weather Related:</h4>' + '<ul class="list-group list-group-flush">' +
+                '<li class="list-group-item">Cover exposed exterior pipes and bibs.</li>' +
+                '<li class="list-group-item">If property is vacant, keep thermostat to a minimum of 50–55 degrees.</li>' +
+                '<li class="list-group-item">Run the taps periodically.</li>' +
+                '<li class="list-group-item">Cover plants.</li>' +
+                '<li class="list-group-item">Bring in pets.</li>' +
+                '</ul>'
+            $("#wxTempWarning").html(coldWarning);
+        }
+    }
+    tempWarning();
+
+
+
+    $.get("https://api.mapbox.com/search-js/v1.0.0-beta.14/web.js", {
+        APPID: OPEN_WEATHER_KEY,
+        q: "San Antonio, US",
+        units: "imperial"
+    }).done(function (data) {
+        $('#five-day-forecast-location').html(
+            '<h4> Current Weather:  San Antonio, TX </h4>' + '<br>' +
+            '<h4> Temperature : ' + 'High ' + data.main.temp_max + ' / ' + 'Low ' + data.main.temp_min + ' , ' +
+            'Description : ' + data.weather[0].main + ' , ' +
+            'Humidity : ' + data.main.humidity + ' , ' +
+            'Pressure : ' + data.main.pressure + '. </h4>'
+        );
+    });
+
+
     // const apikey = $("#apikey").val();
 //     const apikey = $("#apikey").val();
 //     console.log(apikey);
@@ -95,34 +146,20 @@ $(function () {
     // }
 
 
-
-    function getImage() {
-        const icon = $("#icon").val();
-        console.log(icon);
-        var weatherIcon = '<span><img src="http://openweathermap.org/img/w/' + icon + '.png"' + ' alt="img"' + 'alt="control" width="100" height="100"></span>'
-            $("#wxIcon").html(weatherIcon);
-        }
-        getImage();
-
-    function tempWarning() {
-        const temp = $("#temp").val();
-        // parseFloat(temp)
-        console.log(temp);
-        if (temp > 60.00) {
-            var warmWarning = '<p>Maintenance for warm out</p>'
-            $("#wxTempWarning").html(warmWarning);
-        }
-        if (temp < 50.00){
-            var coldWarning = '<p>Maintenance for cold out</p>'
-            $("#wxTempWarning").html(coldWarning);
-        }
-        }
-        tempWarning();
-
-
-    //     $('#current').click(function() {
-    // console.log("test");
-    // });
-
+    // $.ajax({
+    //     url: "https://api.weather.gov/points/29.4,-98.4",
+    //     dataType: "html"
+    // })
+    //     .done(function( html ) {
+    //         $( "#results1" ).append( html );
+    //     });
+    //
+    //     $.ajax({
+    //     url: "https://api.weather.gov/gridpoints/TOP/31,80/forecast",
+    //     dataType: "JSON-LD"
+    // })
+    //     .done(function( html ) {
+    //         $( "#results2" ).append( html );
+    //     });
 
 });

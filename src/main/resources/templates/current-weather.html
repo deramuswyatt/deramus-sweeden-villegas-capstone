@@ -2,6 +2,22 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials :: head('Weather')"></head>
 
+<!--https://docs.mapbox.com/mapbox-search-js/tutorials/add-address-autofill-to-your-website/#set-up-autocomplete-tags-->
+<!--  <script-->
+<!--          id="search-js"-->
+<!--          defer-->
+<!--          src="https://api.mapbox.com/search-js/v1.0.0-beta.14/web.js"-->
+<!--  >-->
+<!--  </script>-->
+<!--  <script>-->
+<!--    const script = document.getElementById('search-js');-->
+<!--    script.onload = function() {-->
+<!--      mapboxsearch.autofill({-->
+<!--        accessToken: "APIKEY"-->
+<!--      });-->
+<!--    };-->
+<!--  </script>-->
+
 <body class="main-bg main-container">
 <nav th:replace="partials :: navbar"></nav>
 
@@ -20,32 +36,48 @@
   <p th:text="${currentWeather.windSpeed} + ' mph'"></p>
 </div>
 
+<p id="results1"></p>
+<p id="results2"></p>
+<p id="results3"></p>
 
-<h1 id="blue" class="d-flex navbar navbar-light bg-primary justify-content-center">Weather Map Project</h1>
+<form>
+  <input
+          name="address" placeholder="Address" type="text"
+          autocomplete="address-line1"
+  />
+  <input
+          name="apartment" placeholder="Apartment number" type="text"
+          autocomplete="address-line2"
+  />
+  <input
+          name="city" placeholder="City" type="text"
+          autocomplete="address-level2"
+  />
+  <input
+          name="state" placeholder="State" type="text"
+          autocomplete="address-level1"
+  />
+  <input
+          name="country" placeholder="Country" type="text"
+          autocomplete="country"
+  />
+  <input
+          name="postcode" placeholder="Postcode" type="text"
+          autocomplete="postal-code"
+  />
+</form>
 
-<!-- The HTML element/container that displays marker/clicked address + Current Weather -->
-<div id="five-day-forecast-location" class="d-flex card card-body justify-content-center"></div>
 
-<!-- The HTML element/container that displays Air Quality Data -->
-<div class="d-flex justify-content-center">
-  <div class="d-flex" id="air-qual"></div>
-</div>
 
-<!-- The HTML element that serves as the 5-day OpenWeather container -->
-<div id="five-day-card" class="d-flex"></div>
-
-<br>
-
-<p type="hidden" th:value="${apikey}" id="apikey" >test</p>
 
 <footer th:replace="partials :: footer"></footer>
 <div th:replace="partials :: boot-scripts"></div>
 <!-- Jquery JS -->
-<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>-->
-<!--<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>-->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
 <!-- Custom JS-->
-<!--<script src="js/main.js"></script>-->
+<script src="js/main.js"></script>
 
 </body>
 </html>

@@ -35,12 +35,6 @@ public class NoteController {
         return "notes/index";
     }
 
-//    @GetMapping("/notes/create")
-//    public String showCreateNoteForm(Model model) {
-//        model.addAttribute("note", new Note());
-//        return "notes/create";
-//    }
-
 
     @GetMapping("notes/create/{id}")
     public String createNoteForm(@PathVariable long id, Model model){
@@ -61,7 +55,7 @@ public class NoteController {
 //        note.setProperty(property);
 //        noteDao.save(note);
 //        Property property = propDao.findById(5);
-      Property property = propDao.findById(id);
+        Property property = propDao.findById(id);
         note.setProperty(property);
         noteDao.save(note);
         return "redirect:/notes";
@@ -75,13 +69,7 @@ public class NoteController {
         return "notes/index";
     }
 
-//        /search/properties?q=600+navarro
 //@RequestParam(name="q") String Query
-
-
-
-
-
 
     @GetMapping("/notes/{id}")
     public String indNote(@PathVariable long id, Model model) {
@@ -92,13 +80,12 @@ public class NoteController {
 
     @GetMapping("/notes/{id}/edit")
     public String editNoteForm(Model model, @PathVariable long id) {
-        Note note = noteDao.findNotesById(id);
-        Property prop = new Property();
+        Note note = noteDao.findById(id);
+        Property property = propDao.findById(id);
+        note.setProperty(property);
         model.addAttribute("notes", note);
-        model.addAttribute("props", prop);
         return "notes/edit-note";
     }
-
 
     @PostMapping("/notes/edit")
     public String editNote(@ModelAttribute Note note) {
@@ -106,6 +93,19 @@ public class NoteController {
         return "redirect:/notes";
     }
 
+    @GetMapping("/notes/{id}/delete")
+    public String confirmDelete(@PathVariable long id, Model model) {
+        model.addAttribute("notes", noteDao.findById(id));
+        return "notes/delete";
+    }
 
+    @PostMapping("/notes/{id}/delete")
+    public String deleteNote(@PathVariable long id, @RequestParam(name="note-id") long noteId) {
+        if (id == noteId) {
+            Note note = noteDao.findById(id);
+            noteDao.delete(note);
+        }
+        return "redirect:/notes";
+    }
 
 }
