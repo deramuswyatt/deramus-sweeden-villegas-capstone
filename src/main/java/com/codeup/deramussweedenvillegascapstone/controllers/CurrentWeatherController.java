@@ -13,8 +13,6 @@ public class CurrentWeatherController {
 
     private final LiveWeatherService liveWeatherService;
 
-//    @Value("${api.mapbox.autofill}")
-//    public String apiKey;
 
     public CurrentWeatherController(LiveWeatherService liveWeatherService) {
         this.liveWeatherService = liveWeatherService;

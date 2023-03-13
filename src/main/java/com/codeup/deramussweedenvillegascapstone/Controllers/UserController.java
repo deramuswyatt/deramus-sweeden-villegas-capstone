@@ -45,7 +45,11 @@ public class UserController {
 
     @GetMapping("/profile")
     public String showProfile(Model model) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User userDetails = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        userDetails.setUsername(username);
+//        userDetails.setEmail(email);
+//        userDetails.setPassword(hash);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 //        Property prop = propDao.findById(user.getId());
 //        Property prop = propDao.findAll();
 //        model.addAttribute("props", propDao.findByUser_Id(user.getId()));
@@ -54,8 +58,6 @@ public class UserController {
         model.addAttribute("props", propDao.findAll());
         return "users/profile";}
     public String showProfile() {return "users/profile";}
-
-
 
 //    the following code is for editing user's profile details and deleting their account:
     @GetMapping("/profile/edit")
