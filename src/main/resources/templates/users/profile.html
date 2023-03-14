@@ -9,16 +9,8 @@
     <h3 th:text="|Email: ${#authentication.principal.email}|"></h3>
     <h3 th:text="|User ID: ${#authentication.principal.id}|"></h3>
 
-
     <a th:href="@{/profile/edit}" class="text-links">Edit Profile</a>
     <a th:href="@{/props/create}" class="text-links">Create Property</a>
-
-    <!--Edit profile button here (below profile details). -->
-
-
-    <form th:action="@{/logout}" th:method="post">
-        <button class="btn-link btn" style="margin-top: 8px">Logout</button>
-    </form>
 
 <!--    How to bring in carousel of properties here? This should come from Wyatt's properties page that he is currently working on-->
 
@@ -29,8 +21,6 @@
         <p><img  th:src="${prop.image_url}" alt="control" width="200" height="200"></p>
         </div>
     </div>
-
-
 
 </main>
 <footer th:replace="partials :: footer"></footer>
