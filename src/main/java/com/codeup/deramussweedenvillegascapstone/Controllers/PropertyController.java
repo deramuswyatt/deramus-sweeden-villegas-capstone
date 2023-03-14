@@ -22,10 +22,11 @@ public class PropertyController {
 
     private final LiveWeatherService liveWeatherService;
 
-
-
     @Value("${api.filestack.key}")
     public String apiKey;
+
+//    @Value("${api.mapbox.autofill}")
+//    public String mapBoxKey;
 
     public PropertyController(UserRepository userDao, PropertyRepository propDao, NoteRepository noteDao, LiveWeatherService liveWeatherService) {
         this.userDao = userDao;
@@ -59,6 +60,7 @@ public class PropertyController {
     public String showPropForm(Model model) {
         model.addAttribute("prop", new Property());
         model.addAttribute("apikey", apiKey);
+//        model.addAttribute("mapBoxkey", mapBoxKey);
         return "props/create";
     }
 
