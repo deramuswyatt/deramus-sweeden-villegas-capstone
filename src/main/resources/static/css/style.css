@@ -1,5 +1,5 @@
 .main-bg {
-    background: whitesmoke;
+    background: #ffffff;
     color: #2B2118;
 }
 
@@ -10,65 +10,124 @@
     justify-content: flex-start;
 }
 
+
 * {
     font-family: 'Josefin Sans', sans-serif;
 }
 
-/*.nav-bg {*/
-/*    background: #C73E1D;*/
-/*    color: #F7F3E3;*/
-/*}*/
-
-/*.nav-bg .logo-font {*/
-/*    text-shadow: 2px 2px #2B2118;*/
-/*}*/
-
-/*.logo-font {*/
-/*    font-family: 'Henny Penny', cursive;*/
-/*}*/
-
-/*.nav-bg a:link, .nav-bg a:visited {*/
-/*    color: #F7F3E3;*/
-/*}*/
-
-/*.nav-bg a:active, .nav-bg a:hover {*/
-/*    color: #0090C1;*/
-/*}*/
-
-/*.footer-bg {*/
-/*    background: #0090C1;*/
-/*    color: #F7F3E3;*/
-/*}*/
 
 .btn {
     border-radius: 0;
+    background-color: #b5e2fa;
+    border: 1px solid #b5e2fa;
 }
 
+
 .btn:hover {
-    background-color: darkorange;
-    border: 1px solid darkorange;
+    background-color: #FCA311;;
+    border: 1px solid #FCA311;;
 }
+
 
 a.nav-link {
     color: black;
     font-size: 18px;
-    font-weight: bold;
 }
+
 
 a.nav-link:hover {
-    color: darkorange;
+    color: #FCA311;
 }
 
-.container h1, .text-center {
-    text-align: center;
-    margin: 20px;
+/*.container h1, .text-center {*/
+/*    text-align: center;*/
+/*    margin: 20px;*/
+/*}*/
+
+.container {
+    margin: auto;
+    border: 2px solid #b5e2fa;
+    padding: 10px;
 }
 
 /*this next section turns the nav links into hamburger menu on screens less than 500px -- see if we like this*/
-@media screen and (max-width: 500px) {
-    .navbar a {
-        float: none;
-        display: block;
-        width: 100%;
-        text-align: left;
-    }}
+/*@media screen and (max-width: 500px) {*/
+/*    .navbar a {*/
+/*        float: none;*/
+/*        display: block;*/
+/*        width: 100%;*/
+/*        text-align: left;*/
+/*    }}*/
+
+.navbar {
+    background-color: #ffffff;
+}
+
+
+h3 {
+    font-weight: normal;
+}
+
+
+h1 {
+    font-weight: normal;
+}
+
+
+.text-center {
+    background: #ffffff;
+    margin: 0;
+}
+
+
+input {
+    padding: 6px 12px;
+    border-radius: 0;
+    border: 1px solid black;
+}
+
+
+ul {
+    padding-top: 30px;
+}
+
+/*@media (min-width: 992px){*/
+/*    .navbar li {*/
+/*        margin-left : 1em;*/
+/*        margin-right : 1em;*/
+/*    }*/
+/*}*/
+
+/*.nav {*/
+/*    list-style-type: none;*/
+/*    padding: 0;*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: space-around;*/
+/*    flex-wrap: nowrap; !* assumes you only want one row *!*/
+/*}*/
+
+.card {
+    float: none;
+    margin: 0 auto 10px;
+    display: inline-flex;
+    flex-wrap: nowrap;
+}
+
+/*@media screen and (min-width: 40em) {*/
+/*    .cards {*/
+/*        display: flex;*/
+/*        flex-wrap: wrap;*/
+/*        justify-content: space-between;*/
+/*    }*/
+
+/*    .card {*/
+/*        flex: 0 1 calc(50% - 1em);*/
+/*    }*/
+/*}*/
+
+i {
+    font-size: 35px;
+    color: black;
+    padding: 7px;
+}
