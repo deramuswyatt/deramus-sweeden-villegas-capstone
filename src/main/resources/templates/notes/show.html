@@ -8,12 +8,12 @@
 <main class="container">
   <div>
     <h1 th:text="${notes.title}"></h1>
-    <p th:text="${notes.body}"></p>
-    <p th:text="${notes.category}"></p>
-    <p th:text="${notes.property.zip}"></p>
-    <p th:text="${notes.property.city}"></p>
-    <p th:text="${notes.property.state}"></p>
-    <p th:text="${notes.property.user.username}"></p>
+    <p th:text="|Body: ${notes.body}|"></p>
+    <p th:text="|Category: ${notes.category}|"></p>
+    <p th:text="|Zip: ${notes.property.zip}|"></p>
+    <p th:text="|City: ${notes.property.city}|"></p>
+    <p th:text="|State: ${notes.property.state}|"></p>
+    <p th:text="|Posted by: ${notes.property.user.username}|"></p>
   </div>
   <a th:href="@{/notes/{id}/edit(id=${notes.id})}" class="text-links">Edit Note</a>
   <a th:href="@{/notes/{id}/delete(id=${notes.id})}" class="text-links">Delete Note</a>

@@ -36,7 +36,7 @@
         </div>
 
         <div class="form-group">
-            <label for="street_add">street_add</label>
+            <label for="street_add">Street Address</label>
             <!--            <input id="street_add" name="street_add" class="form-control" type="text" th:field="*{street_add}" >-->
             <input
                     id="street_add" name="address" placeholder="Address" type="text"
@@ -46,18 +46,17 @@
         </div>
 
         <div class="form-group">
-            <label for="city">city</label>
+            <label for="city">City</label>
             <!--            <input id="city" name="city" class="form-control" type="text" th:field="*{city}">-->
             <input
                     id="city" name="city" placeholder="City" type="text"
                     autocomplete="address-level2"
                     th:field="*{city}"
             />
-            <input>
         </div>
 
         <div class="form-group">
-            <label for="state">state</label>
+            <label for="state">State</label>
             <!--            <input id="state" name="state" class="form-control" type="text" th:field="*{state}" >-->
             <input
                     id="state" name="state" placeholder="State" type="text"
@@ -67,7 +66,7 @@
         </div>
 
         <div class="form-group">
-            <label for="zip">zip</label>
+            <label for="zip">Zip</label>
             <!--            <input id="zip" name="zip" class="form-control" type="text" th:field="*{zip}">-->
             <input
                     id="zip" name="postcode" placeholder="Postcode" type="text"
@@ -78,10 +77,10 @@
 
         <div class="form-group">
             <label for="image">Property Image</label>
-            <input type="text" id="image" th:field="*{image_url}">
+            <input type="hidden" id="image" th:field="*{image_url}">
             <input type="hidden" th:value="${apikey}" id="apikey">
         </div>
-        <p id="test" name="test">upload</p>
+        <p id="test" name="test">(upload)</p>
         <input type="hidden" th:field="*{id}">
 
         <input type="submit" class="btn btn-block btn-primary">

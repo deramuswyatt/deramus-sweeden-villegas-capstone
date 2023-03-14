@@ -7,16 +7,13 @@
 <nav th:replace="partials :: navbar"></nav>
 <main class="container">
     <div>
+        <p><img  th:src="${prop.image_url}" alt="control" width="200" height="200"></p>
+        <h3 th:text="|Property Entered By: ${prop.user.username}|"></h3>
         <h1 th:text="${prop.street_add}"></h1>
-        <h3 th:text="|By: ${prop.user.username}|"></h3>
         <p th:text="${prop.city}"></p>
         <p th:text="${prop.state}"></p>
         <p th:text="${prop.zip}"></p>
-        <p th:text="${prop.category}"></p>
-        <p><img  th:src="${prop.image_url}" alt="control" width="200" height="200"></p>
-<!--        <p th:text="${prop.user.note.title}"></p>-->
-<!--        <p th:text="${prop.note.body}"></p>-->
-        <p th:text="${prop.user.username}"></p>
+        <p th:text="|Category: ${prop.category}|"></p>
     </div>
 
     <div id="current" class="side-container">

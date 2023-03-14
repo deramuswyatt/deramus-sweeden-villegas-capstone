@@ -25,12 +25,6 @@
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/profile">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/props">Properties</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="/about">About Us</a>
                 </li>
                 <li class="nav-item">
@@ -49,7 +43,9 @@
                     <button class="btn footer-bg" type="submit" id="logout">Log Out</button>
                 </form>
 
-
+                <li sec:authorize="isAuthenticated()" class="nav-item">
+                    <a class="nav-link" href="/profile">Profile</a>
+                </li>
                 <li sec:authorize="!isAuthenticated()" class="nav-item">
                     <a class="nav-link" href="/login">Log In</a>
                 </li>
