@@ -44,10 +44,16 @@ a.nav-link:hover {
 /*    margin: 20px;*/
 /*}*/
 
-.container {
+.container-home {
     margin: auto;
     border: 2px solid #b5e2fa;
     padding: 10px;
+}
+
+/*this is not appearing on page, will need to modify the elements targeted?*/
+.container {
+    font-size: 18px;
+    color: black;
 }
 
 /*this next section turns the nav links into hamburger menu on screens less than 500px -- see if we like this*/
@@ -63,14 +69,11 @@ a.nav-link:hover {
     background-color: #ffffff;
 }
 
-
-h3 {
+h1, h3 {
     font-weight: normal;
-}
-
-
-h1 {
-    font-weight: normal;
+    text-align: center;
+    color: #118ab2;
+    text-underline: none;
 }
 
 
@@ -120,7 +123,6 @@ ul {
 /*        flex-wrap: wrap;*/
 /*        justify-content: space-between;*/
 /*    }*/
-
 /*    .card {*/
 /*        flex: 0 1 calc(50% - 1em);*/
 /*    }*/
@@ -130,4 +132,41 @@ i {
     font-size: 35px;
     color: black;
     padding: 7px;
+}
+
+/*.nav {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*}*/
+
+.navbar-collapse {
+    justify-content: center;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+}
+
+#category {
+    padding: 5px 10px 5px 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #118ab2;
+}
+
+a:hover {
+    color: #FCA311;
+}
+
+.form-label {
+    padding-top: 10px;
+}
+
+.card-body > p {
+padding: 0;
 }

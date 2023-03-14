@@ -6,52 +6,81 @@
 <body class="main-bg main-container">
 <nav th:replace="partials :: navbar"></nav>
 <main class="container">
-    <div>
-        <h1 th:text="${prop.street_add}"></h1>
-        <h3 th:text="|By: ${prop.user.username}|"></h3>
-        <p th:text="${prop.city}"></p>
-        <p th:text="${prop.state}"></p>
-        <p th:text="${prop.zip}"></p>
-        <p th:text="${prop.category}"></p>
-        <p><img  th:src="${prop.image_url}" alt="control" width="200" height="200"></p>
-<!--        <p th:text="${prop.user.note.title}"></p>-->
-<!--        <p th:text="${prop.note.body}"></p>-->
-        <p th:text="${prop.user.username}"></p>
-    </div>
+    <!--    <div>-->
+    <!--        <h1 th:text="${prop.street_add}"></h1>-->
+    <!--        <h3 th:text="|By: ${prop.user.username}|"></h3>-->
+    <!--        <p th:text="${prop.city}"></p>-->
+    <!--        <p th:text="${prop.state}"></p>-->
+    <!--        <p th:text="${prop.zip}"></p>-->
+    <!--        <p th:text="${prop.category}"></p>-->
+    <!--        <p><img  th:src="${prop.image_url}" alt="control" width="200" height="200"></p>-->
+    <!--&lt;!&ndash;        <p th:text="${prop.user.note.title}"></p>&ndash;&gt;-->
+    <!--&lt;!&ndash;        <p th:text="${prop.note.body}"></p>&ndash;&gt;-->
+    <!--        <p th:text="${prop.user.username}"></p>-->
+    <!--    </div>-->
 
-    <div id="current" class="side-container">
+    <!--    <div id="current" class="side-container">-->
+    <!--            <h3>Current Conditions</h3>-->
+    <!--&lt;!&ndash;            <p th:text="${weather.description}">Description</p>&ndash;&gt;-->
+    <!--&lt;!&ndash;            <span type="hidden" id="icon" th:text="${weather.description}"></span>&ndash;&gt;-->
+    <!--            <input type="hidden" th:value="${weather.description}" id="icon">-->
+
+    <!--        <p id="wxIcon"></p>-->
+    <!--            <h3>Temperature</h3>-->
+    <!--            <p id="visibleTemp" th:text="${weather.temperature} + ' &#8457;'">Temperature</p>-->
+    <!--            <input type="hidden" id="temp" th:value="${weather.temperature}">-->
+    <!--        <p id="wxTempWarning" style="color:red"></p>-->
+    <!--        <h3>Feels Like</h3>-->
+    <!--            <p th:text="${weather.feelsLike} + ' &#8457;'">Feels Like</p>-->
+    <!--            <h3>Wind Speed</h3>-->
+    <!--            <p th:text="${weather.windSpeed} + ' mph'"></p>-->
+    <!--    </div>-->
+
+
+    <div class="card">
+        <h5 class="card-header" th:text="${prop.category}"></h5>
+        <div class="card-body"></div>
+        <p th:text="${prop.street_add}"></p>
+            <p th:text="${prop.city}"></p>
+            <p th:text="${prop.state}"></p>
+            <p th:text="${prop.zip}"></p>
+            <p><img th:src="${prop.image_url}" alt="control" width="200" height="200"></p>
+
+
+        <div id="current" class="side-container">
             <h3>Current Conditions</h3>
-<!--            <p th:text="${weather.description}">Description</p>-->
-<!--            <span type="hidden" id="icon" th:text="${weather.description}"></span>-->
+            <!--            <p th:text="${weather.description}">Description</p>-->
+            <!--            <span type="hidden" id="icon" th:text="${weather.description}"></span>-->
             <input type="hidden" th:value="${weather.description}" id="icon">
 
-        <p id="wxIcon"></p>
+            <p id="wxIcon"></p>
             <h3>Temperature</h3>
             <p id="visibleTemp" th:text="${weather.temperature} + ' &#8457;'">Temperature</p>
             <input type="hidden" id="temp" th:value="${weather.temperature}">
-        <p id="wxTempWarning" style="color:red"></p>
-        <h3>Feels Like</h3>
+            <p id="wxTempWarning" style="color:red"></p>
+            <h3>Feels Like</h3>
             <p th:text="${weather.feelsLike} + ' &#8457;'">Feels Like</p>
             <h3>Wind Speed</h3>
             <p th:text="${weather.windSpeed} + ' mph'"></p>
-    </div>
-
-<!--    Notes listing-->
-    <div th:each="note : ${notes}">
-        <div th:if="${prop.id} == ${note.property.id} ">
-        <a th:href="@{/notes/{id} (id = ${note.id})}"><h1 th:text="${note.title}"></h1></a>
-        <p th:text="${note.body}"></p>
-        <p th:text="${note.category}"></p>
         </div>
     </div>
+
+        <!--    Notes listing-->
+        <div th:each="note : ${notes}">
+            <div th:if="${prop.id} == ${note.property.id} ">
+                <a th:href="@{/notes/{id} (id = ${note.id})}"><h1 th:text="${note.title}"></h1></a>
+                <p th:text="${note.body}"></p>
+                <p th:text="${note.category}"></p>
+            </div>
+        </div>
 
 
         <a th:href="@{/props/{id}/edit(id=${prop.id})}" class="text-links">Edit Property</a>
         <br>
-<!--    <div th:if="${#authentication.principal.id == post.user.id}">-->
+        <!--    <div th:if="${#authentication.principal.id == post.user.id}">-->
         <!--        <button th:action="@{/posts/${post.id}/edit}" th:method="post">Edit</button>-->
         <a th:href="@{/notes/create/{id}(id=${prop.id})}" class="text-links">Create Community Note</a>
-    <br>
+        <br>
         <a th:href="@{/props/{id}/delete(id=${prop.id})}" class="text-links">Delete Property</a>
 
 </main>
@@ -59,7 +88,8 @@
 <div th:replace="partials :: boot-scripts"></div>
 <!-- Jquery JS -->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <!-- Custom JS -->
 <!--<script type="application/x-javascript" src="src/main/resources/static/js/main.js"></script>-->
 <script src="/js/main.js" type="application/javascript"></script>
