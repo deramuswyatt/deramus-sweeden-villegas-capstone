@@ -38,19 +38,19 @@ $(function () {
 
 
 
-    $.get("https://api.mapbox.com/search-js/v1.0.0-beta.14/web.js", {
-        APPID: OPEN_WEATHER_KEY,
-        q: "San Antonio, US",
-        units: "imperial"
-    }).done(function (data) {
-        $('#five-day-forecast-location').html(
-            '<h4> Current Weather:  San Antonio, TX </h4>' + '<br>' +
-            '<h4> Temperature : ' + 'High ' + data.main.temp_max + ' / ' + 'Low ' + data.main.temp_min + ' , ' +
-            'Description : ' + data.weather[0].main + ' , ' +
-            'Humidity : ' + data.main.humidity + ' , ' +
-            'Pressure : ' + data.main.pressure + '. </h4>'
-        );
-    });
+    // $.get("https://api.mapbox.com/search-js/v1.0.0-beta.14/web.js", {
+    //     APPID: OPEN_WEATHER_KEY,
+    //     q: "San Antonio, US",
+    //     units: "imperial"
+    // }).done(function (data) {
+    //     $('#five-day-forecast-location').html(
+    //         '<h4> Current Weather:  San Antonio, TX </h4>' + '<br>' +
+    //         '<h4> Temperature : ' + 'High ' + data.main.temp_max + ' / ' + 'Low ' + data.main.temp_min + ' , ' +
+    //         'Description : ' + data.weather[0].main + ' , ' +
+    //         'Humidity : ' + data.main.humidity + ' , ' +
+    //         'Pressure : ' + data.main.pressure + '. </h4>'
+    //     );
+    // });
 
 
     // const apikey = $("#apikey").val();
