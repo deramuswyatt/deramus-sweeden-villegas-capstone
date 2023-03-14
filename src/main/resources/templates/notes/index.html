@@ -8,8 +8,8 @@
 <main class="container">
   <div th:each="note : ${notes}">
     <a th:href="@{/notes/{id} (id = ${note.id})}"><h1 th:text="${note.title}"></h1></a>
-    <p th:text="${note.body}"></p>
-    <p th:text="${note.category}"></p>
+    <p th:text="|Body: ${note.body}|"></p>
+    <p th:text="|Category: ${note.category}|"></p>
   </div>
 </main>
 <footer th:replace="~{partials :: footer}"></footer>
