@@ -17,7 +17,8 @@
 
     <label for="password">Password</label>
     <input id="password" type="password" th:field="*{password}" />
-
+<!--        <div class="error-message" style="color: red; font-weight: bold" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>-->
+<!--        <div class="error-message" style="color: red; font-weight: bold" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>-->
     <input value="Sign me up!" type="submit" />
   </form>
 </main>

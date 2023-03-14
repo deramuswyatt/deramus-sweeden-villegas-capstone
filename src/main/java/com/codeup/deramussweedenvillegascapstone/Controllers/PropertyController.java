@@ -91,6 +91,7 @@ public class PropertyController {
 
     @GetMapping("/props/{id}/delete")
     public String confirmDelete(@PathVariable long id, Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("prop", propDao.findById(id));
         return "props/delete";
     }
