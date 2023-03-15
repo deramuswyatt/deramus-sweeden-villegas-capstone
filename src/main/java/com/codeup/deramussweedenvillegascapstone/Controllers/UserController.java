@@ -69,14 +69,32 @@ public class UserController {
         return "users/editProfile"; //this is the html name
     }
 
+//    @PostMapping("/profile/edit")
+//    public String saveEditedProfile(@RequestParam(name="name") String username, @RequestParam(name="email") String email) {
+//        User user = userDao.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
+//        user.setUsername(username);
+//        user.setEmail(email);
+//        userDao.save(user);
+//        return "redirect:/profile";
+//    }
+
     @PostMapping("/profile/edit")
-    public String saveEditedProfile(@RequestParam(name="name") String username, @RequestParam(name="email") String email) {
-        User user = userDao.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
+    public String saverEditProfile(@ModelAttribute User user, @RequestParam(name = "username") String username, @RequestParam(name = "name") String name,  @RequestParam(name = "email") String email, @RequestParam(name = "password") String password) {
+        String hash = passwordEncoder.encode(password);
+        user.setPassword(hash);
         user.setUsername(username);
+        user.setUsername(name);
         user.setEmail(email);
         userDao.save(user);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User userDetails = (User) authentication.getPrincipal();
+        userDetails.setUsername(username);
+        userDetails.setUsername(name);
+        userDetails.setEmail(email);
+        userDetails.setPassword(hash);
         return "redirect:/profile";
     }
+
 
 //    not using this functionality currently?
     @PostMapping("/profile/delete")
