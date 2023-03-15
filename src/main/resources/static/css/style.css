@@ -18,9 +18,10 @@
 
 .btn {
     border-radius: 0;
-    background-color: #b5e2fa;
-    border: 1px solid #b5e2fa;
+    background-color: #118ab2;
+    border: 1px solid #118ab2;
     margin: 5px;
+    color: black;
 }
 
 
@@ -75,7 +76,7 @@ a.nav-link:hover {
 h1, h3 {
     font-weight: normal;
     text-align: center;
-    color: #118ab2;
+    color: black;
     text-underline: none;
 }
 
@@ -91,7 +92,6 @@ input {
     border-radius: 0;
     border: 1px solid black;
 }
-
 
 ul {
     padding-top: 30px;
@@ -239,8 +239,8 @@ img {
 
 .text-links {
     border-radius: 0;
-    background-color: #b5e2fa;
-    border: 1px solid #b5e2fa;
+    background-color: #118ab2;
+    border: 1px solid #118ab2;
     margin: 5px;
 }
 
@@ -270,10 +270,21 @@ img {
 }
 
 
+#brand-img {
+    height: 100px;
+    padding-top: -30px;
+}
 
+/*@media (min-width: 992px){*/
+/*    .collapse {*/
+/*        margin-left : 1em;*/
+/*        margin-right : 1em;*/
+/*    }*/
+/*}*/
 
-
-
+.nav-item {
+    margin-left : 1em;
+    margin-right : 1em;
 
 
 .vid {
@@ -283,11 +294,6 @@ img {
     width: 100%;
     object-fit: cover;
     opacity: 0.2;
+
 }
-
-
-
-
-
-
 
