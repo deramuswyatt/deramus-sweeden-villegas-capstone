@@ -10,6 +10,7 @@
     <a th:href="@{/notes/{id} (id = ${note.id})}"><h1 th:text="${note.title}"></h1></a>
     <p th:text="|Body: ${note.body}|"></p>
     <p th:text="|Category: ${note.category}|"></p>
+    <p th:text="|Zip: ${note.property.zip}|"></p>
   </div>
 </main>
 <footer th:replace="~{partials :: footer}"></footer>
