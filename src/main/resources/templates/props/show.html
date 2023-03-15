@@ -53,7 +53,7 @@
         <h5 class="card-header">Current Weather Conditions</h5>
         <input type="hidden" th:value="${weather.description}" id="icon">
         <p id="wxIcon"></p>
-        <p th:text="'Description: ' + ${weather.description} + '.'"></p>
+        <p th:text="|Description: ${weather.descriptText}.|"></p>
 <!--        <span type="hidden" id="icon" th:text="${weather.description}"></span>-->
         <p id="visibleTemp" th:text="'Temperature: ' + ${weather.temperature} + ' &#8457;'"></p>
 <!--        <input type="hidden" id="temp" th:value="${weather.temperature}">-->
