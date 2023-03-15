@@ -3,14 +3,17 @@
 <head th:replace="partials :: head ('About')"></head>
 <body class="main-bg main-container">
 <nav th:replace="partials :: navbar"></nav>
-<main class="container">
+
+<div class="container-a text-center" >
+<!--    <h1 id="About Us">About Us</h1>-->
+    <div class="row align-items-center justify-content-center col-sm-1 col-md-3 col-lg-12 w-40 p-3">
+<!--<main class="container">-->
     <h1>About Us</h1>
 <!--Wyatt's card-->
     <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="/img/wyatt.jpg" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">Wyatt DeRamus</h5>
-            <p class="card-text">Resume summary goes here</p>
         </div>
         <div class="card-body">
             <a href="https://www.linkedin.com/in/wyattderamus/" class="card-link"><i class="fa-brands fa-linkedin"></i></a>
@@ -25,7 +28,6 @@
         <img class="card-img-top" src="/img/nicole.jpg" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">Nicole Sweeden</h5>
-            <p class="card-text">Resume summary goes here</p>
         </div>
         <div class="card-body">
             <a href="https://www.linkedin.com/in/nicole-sweeden/" class="card-link"><i class="fa-brands fa-linkedin"></i></a>
@@ -40,7 +42,6 @@
         <img class="card-img-top" src="/img/ernesto.jpg" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">Ernesto Villegas</h5>
-            <p class="card-text">Resume summary goes here</p>
         </div>
         <div class="card-body">
             <a href="https://www.linkedin.com/in/villegasern/" class="card-link"><i class="fa-brands fa-linkedin"></i></a>
@@ -49,9 +50,115 @@
             <a href="https://alumni.codeup.com/students/1783" class="card-link"><i class="fa-solid fa-user-graduate"></i></a>
         </div>
     </div>
+    </div>
+</div>
 
-</main>
+<!--</main>-->
 <footer th:replace="partials :: footer"></footer>
 <div th:replace="partials :: boot-scripts"></div>
 </body>
 </html>
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head th:replace="partials :: head ('About')"></head>-->
+<!--<body class="main-bg main-container">-->
+<!--<nav th:replace="partials :: navbar"></nav>-->
+
+<!--<div class="container-a text-center" >-->
+<!--    <h1 id="About Us">About Us</h1>-->
+<!--    <div class="row align-items-center col-sm-1 col-md-4 col-lg-12">-->
+<!--        <div class="col" style="width: 18rem;">-->
+<!--            <img class="card-img-top" src="/img/wyatt.jpg" alt="Card image cap">-->
+<!--&lt;!&ndash;            <div class="card-body">&ndash;&gt;-->
+<!--                <h5 class="card-title">Wyatt DeRamus</h5>-->
+<!--&lt;!&ndash;                <div class="card-body">&ndash;&gt;-->
+<!--                    <a href="https://www.linkedin.com/in/wyattderamus/" class="card-link"><i class="fa-brands fa-linkedin"></i></a>-->
+<!--                    <a href="https://github.com/deramuswyatt" class="card-link"><i class="fa-brands fa-github"></i></a>-->
+<!--                    <a href="mailto:deramus.wyatt@gmail.com" class="card-link"><i class="fa-regular fa-envelope"></i></a>-->
+<!--                    <a href="https://alumni.codeup.com/students/1785" class="card-link"><i class="fa-solid fa-user-graduate"></i></a>-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--        </div>-->
+<!--        <div class="col" style="width: 18rem;">-->
+<!--            <img class="card-img-top" src="/img/nicole.jpg" alt="Card image cap">-->
+<!--&lt;!&ndash;            <div class="card-body">&ndash;&gt;-->
+<!--                <h5 class="card-title">Nicole Sweeden</h5>-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="card-body">&ndash;&gt;-->
+<!--                <a href="https://www.linkedin.com/in/nicole-sweeden/" class="card-link"><i class="fa-brands fa-linkedin"></i></a>-->
+<!--                <a href="https://github.com/nicolesweeden" class="card-link"><i class="fa-brands fa-github"></i></a>-->
+<!--                <a href="mailto:sweeden.nicole@gmail.com" class="card-link"><i class="fa-regular fa-envelope"></i></a>-->
+<!--                <a href="https://alumni.codeup.com/students/1769" class="card-link"><i class="fa-solid fa-user-graduate"></i></a>-->
+<!--            </div>-->
+<!--            <div class="col" style="width: 18rem;">-->
+<!--                <img class="card-img-top" src="/img/ernesto.jpg" alt="Card image cap">-->
+<!--&lt;!&ndash;                <div class="card-body">&ndash;&gt;-->
+<!--                    <h5 class="card-title">Ernesto Villegas</h5>-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="card-body">&ndash;&gt;-->
+<!--                    <a href="https://www.linkedin.com/in/villegasern/" class="card-link"><i class="fa-brands fa-linkedin"></i></a>-->
+<!--                    <a href="https://github.com/ErnestoNMNVillegas" class="card-link"><i class="fa-brands fa-github"></i></a>-->
+<!--                    <a href="mailto:ernesto.nmn.villegas@gmail.com" class="card-link"><i class="fa-regular fa-envelope"></i></a>-->
+<!--                    <a href="https://alumni.codeup.com/students/1783" class="card-link"><i class="fa-solid fa-user-graduate"></i></a>-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--            </div>-->
+<!--        </div>-->
+<!--</div>-->
+
+
+
+
+    <!--<main class="container col-sm col-3-md col-12-lg">-->
+    <!--    <div id="about-logo">-->
+    <!--        <h1>About Us</h1>-->
+    <!--    </div>-->
+    <!--Wyatt's card-->
+    <!--    <div class="card" style="width: 18rem;">-->
+    <!--        <img class="card-img-top" src="/img/wyatt.jpg" alt="Card image cap">-->
+    <!--        <div class="card-body">-->
+    <!--            <h5 class="card-title">Wyatt DeRamus</h5>-->
+    <!--        </div>-->
+    <!--        <div class="card-body">-->
+    <!--            <a href="https://www.linkedin.com/in/wyattderamus/" class="card-link"><i class="fa-brands fa-linkedin"></i></a>-->
+    <!--            <a href="https://github.com/deramuswyatt" class="card-link"><i class="fa-brands fa-github"></i></a>-->
+    <!--            <a href="mailto:deramus.wyatt@gmail.com" class="card-link"><i class="fa-regular fa-envelope"></i></a>-->
+    <!--            <a href="https://alumni.codeup.com/students/1785" class="card-link"><i class="fa-solid fa-user-graduate"></i></a>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
+
+    <!--Nicole's card-->
+    <!--    <div class="card" style="width: 18rem;">-->
+    <!--        <img class="card-img-top" src="/img/nicole.jpg" alt="Card image cap">-->
+    <!--        <div class="card-body">-->
+    <!--            <h5 class="card-title">Nicole Sweeden</h5>-->
+    <!--        </div>-->
+    <!--        <div class="card-body">-->
+    <!--            <a href="https://www.linkedin.com/in/nicole-sweeden/" class="card-link"><i class="fa-brands fa-linkedin"></i></a>-->
+    <!--            <a href="https://github.com/nicolesweeden" class="card-link"><i class="fa-brands fa-github"></i></a>-->
+    <!--            <a href="mailto:sweeden.nicole@gmail.com" class="card-link"><i class="fa-regular fa-envelope"></i></a>-->
+    <!--            <a href="https://alumni.codeup.com/students/1769" class="card-link"><i class="fa-solid fa-user-graduate"></i></a>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
+    <!--    &lt;!&ndash;Ernesto's card&ndash;&gt;-->
+    <!--    <div class="card" style="width: 18rem;">-->
+    <!--        <img class="card-img-top" src="/img/ernesto.jpg" alt="Card image cap">-->
+    <!--        <div class="card-body">-->
+    <!--            <h5 class="card-title">Ernesto Villegas</h5>-->
+    <!--        </div>-->
+    <!--        <div class="card-body">-->
+    <!--            <a href="https://www.linkedin.com/in/villegasern/" class="card-link"><i class="fa-brands fa-linkedin"></i></a>-->
+    <!--            <a href="https://github.com/ErnestoNMNVillegas" class="card-link"><i class="fa-brands fa-github"></i></a>-->
+    <!--            <a href="mailto:ernesto.nmn.villegas@gmail.com" class="card-link"><i class="fa-regular fa-envelope"></i></a>-->
+    <!--            <a href="https://alumni.codeup.com/students/1783" class="card-link"><i class="fa-solid fa-user-graduate"></i></a>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
+
+    <!--</main>-->
+<!--    <footer th:replace="partials :: footer"></footer>-->
+<!--    <div th:replace="partials :: boot-scripts"></div>-->
+<!--</body>-->
+<!--</html>-->
