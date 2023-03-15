@@ -76,7 +76,7 @@ public class PropertyController {
 //            emailService.preparedAndSendProp(prop);
         }
 
-        return "redirect:/props";
+        return "redirect:/profile";
     }
 
     @GetMapping("/props/{id}/edit")
