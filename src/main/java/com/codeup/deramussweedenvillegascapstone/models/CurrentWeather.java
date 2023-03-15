@@ -7,12 +7,15 @@ import java.math.BigDecimal;
 public class CurrentWeather implements Serializable {
 
     private String description;
+
+    private String descriptText;
     private BigDecimal temperature;
     private BigDecimal feelsLike;
     private BigDecimal windSpeed;
 
-    public CurrentWeather(String description, BigDecimal temperature, BigDecimal feelsLike, BigDecimal windSpeed) {
+    public CurrentWeather(String description, String descriptText, BigDecimal temperature, BigDecimal feelsLike, BigDecimal windSpeed) {
         this.description = description;
+        this.descriptText = descriptText;
         this.temperature = temperature;
         this.feelsLike = feelsLike;
         this.windSpeed = windSpeed;
@@ -49,5 +52,13 @@ public class CurrentWeather implements Serializable {
 
     public void setWindSpeed(BigDecimal windSpeed) {
         this.windSpeed = windSpeed;
+    }
+
+    public String getDescriptText() {
+        return descriptText;
+    }
+
+    public void setDescriptText(String descriptText) {
+        this.descriptText = descriptText;
     }
 }

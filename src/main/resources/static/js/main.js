@@ -5,10 +5,13 @@ $(function () {
     function getImage() {
         const icon = $("#icon").val();
         // console.log(icon);
-        var weatherIcon = '<span><img src="http://openweathermap.org/img/w/' + icon + '.png"' + ' alt="img"' + 'alt="control" width="100" height="100"></span>'
+        var weatherIcon = '<span><img src="http://openweathermap.org/img/wn/' + icon + '@4x.png"' + ' alt="img"' + ' alt="control" ></span>'
         $("#wxIcon").html(weatherIcon);
     }
     getImage();
+
+    // width="100" height="100"
+    // "http://openweathermap.org/img/w/'
 
     function tempWarning() {
         const temp = $("#temp").val();
