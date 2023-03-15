@@ -83,7 +83,7 @@
                         <button class="btn btn-info my-2 my-sm-0" type="submit">Find</button>
                     </form>
                 </li>
-                <!--            </ul>-->
+
                 <form sec:authorize="isAuthenticated()" class="ms-auto d-flex" th:action="@{/logout}"
                       th:method="POST">
                     <button class="btn footer-bg" type="submit" id="logout">Log Out</button>
@@ -108,9 +108,6 @@
         <span class="text-reset fw-bold">DeRamus-Sweeden-Villegas | 2023</span>
     </div>
 </footer>
-
-
-
 
 <div th:fragment="boot-scripts">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
