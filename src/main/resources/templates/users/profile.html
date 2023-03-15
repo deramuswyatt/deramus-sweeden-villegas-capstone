@@ -24,8 +24,10 @@
             <p class="profile-email" th:text="|Email: ${#authentication.principal.email}|"></p>
             <p th:text="|User ID: ${#authentication.principal.id}|"></p>
         <!--put edit profile and create property buttons next to each other -->
-        <button th:href="@{/profile/edit}" class="text-links">Edit Profile</button>
-        <button th:href="@{/props/create}" class="text-links">Create Property</button>
+        <a th:href="@{/profile/edit}" class="btn btn-primary">Edit Profile</a>
+<!--        <button th:href="@{/props/create}" class="text-links">Create Property</button>-->
+        <a th:href="@{/props/create}" class="btn btn-primary">Create Property</a>
+
     </div>
 
 <!--    How to bring in carousel of properties here?-->
