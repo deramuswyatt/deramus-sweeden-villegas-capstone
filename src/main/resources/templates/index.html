@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials :: head ('Home Page')"><title></title></head>
+<head th:replace="partials :: head ('Home Page')">
+    <title></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+</head>
 <body class="main-bg main-container">
 <nav th:replace="partials :: navbar"></nav>
 <main class="container-home">
@@ -10,6 +13,9 @@
         your area. We also provide a place where neighbors can connect to receive trusted information and give and get
         help.
     </h3>
+<!--    <video autoplay muted loop class="vid">-->
+<!--        <source src="/img/video.mp4">-->
+<!--    </video>-->
 </main>
 <footer th:replace="partials :: footer"></footer>
 <div th:replace="partials :: boot-scripts"></div>

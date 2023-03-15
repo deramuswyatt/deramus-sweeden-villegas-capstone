@@ -269,3 +269,25 @@ img {
     margin-top: 20px;
 }
 
+
+
+
+
+
+
+
+.vid {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+}
+
+
+
+
+
+
+
