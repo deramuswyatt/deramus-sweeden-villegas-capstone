@@ -5,20 +5,36 @@
 <nav th:replace="partials :: navbar"></nav>
 <main class="container">
     <h1>My Profile</h1>
-    <h2 th:text="|Hello, ${#authentication.principal.username}!|"></h2>
-    <h3 th:text="|Email: ${#authentication.principal.email}|"></h3>
-    <h3 th:text="|User ID: ${#authentication.principal.id}|"></h3>
 
-    <a th:href="@{/profile/edit}" class="text-links">Edit Profile</a>
-    <a th:href="@{/props/create}" class="text-links">Create Property</a>
+<!--    <h3 th:text="|Email: ${#authentication.principal.email}|"></h3>-->
+<!--    <h3 th:text="|User ID: ${#authentication.principal.id}|"></h3>-->
 
-<!--    How to bring in carousel of properties here? This should come from Wyatt's properties page that he is currently working on-->
+<!--    <a th:href="@{/profile/edit}" class="text-links">Edit Profile</a>-->
+<!--    <a th:href="@{/props/create}" class="text-links">Create Property</a>-->
+
+    <!--    this code is an example below-->
+<!--    <button th:href="@{/props/{id}/edit(id=${prop.id})}" class="text-links btn">Edit Property</button>-->
+
+<!--    <button th:href="@{/props/{id}/delete(id=${prop.id})}" class="text-links btn">Delete Property</button>-->
+    <!--    end example code-->
+
+<!--    start of my code in a card:-->
+    <div class="card profile-card">
+        <h2 class="card-header greeting" th:text="|Hello, ${#authentication.principal.username}!|"></h2>
+            <p class="profile-email" th:text="|Email: ${#authentication.principal.email}|"></p>
+            <p th:text="|User ID: ${#authentication.principal.id}|"></p>
+        <!--put edit profile and create property buttons next to each other -->
+        <button th:href="@{/profile/edit}" class="text-links">Edit Profile</button>
+        <button th:href="@{/props/create}" class="text-links">Create Property</button>
+    </div>
+
+<!--    How to bring in carousel of properties here?-->
 
     <div th:each="prop : ${props}">
         <div th:if="${#authentication.principal.id == prop.user.id}">
         <a th:href="@{/props/{id} (id = ${prop.id})}"><h1 th:text="${prop.street_add}"></h1></a>
         <p th:text="${prop.category}"></p>
-        <p><img  th:src="${prop.image_url}" alt="control" width="200" height="200"></p>
+        <p><img th:src="${prop.image_url}" alt="control" width="200" height="200"></p>
         </div>
     </div>
 

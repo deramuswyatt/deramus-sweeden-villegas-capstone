@@ -82,7 +82,7 @@
                         <button class="btn btn-info my-2 my-sm-0" type="submit">Find</button>
                     </form>
                 </li>
-                <!--            </ul>-->
+
                 <form sec:authorize="isAuthenticated()" class="ms-auto d-flex" th:action="@{/logout}"
                       th:method="POST">
                     <button class="btn footer-bg" type="submit" id="logout">Log Out</button>
