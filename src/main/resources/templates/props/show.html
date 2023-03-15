@@ -73,7 +73,7 @@
 
     <!--    <div th:if="${#authentication.principal.id == post.user.id}">-->
     <!--        <button th:action="@{/posts/${post.id}/edit}" th:method="post">Edit</button>-->
-    <button th:href="@{/notes/create/{id}(id=${prop.id})}" class="text-links btn">Post to Community Dashboard</button>
+    <a th:href="@{/notes/create/{id}(id=${prop.id})}" class="btn btn-primary">Post to Community Dashboard</a>
 
 
 </main>
