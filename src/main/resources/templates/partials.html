@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:fragment="head (title)">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
     <title th:text="|Property Connects - ${title}|"></title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,8 +61,7 @@
 <!--    </div>-->
 <!--</nav>-->
 
-
-<nav th:fragment="navbar" class="navbar navbar-expand-lg nav-bg mb-2">
+<nav th:fragment="navbar" class="navbar navbar-expand-sm navbar-expand-lg nav-bg mb-2">
     <div class="container-fluid">
 
         <div class="collapse navbar-collapse navbar-brand" id="navbarSupportedContent">
@@ -108,9 +107,6 @@
         <span class="text-reset fw-bold">DeRamus-Sweeden-Villegas | 2023</span>
     </div>
 </footer>
-
-
-
 
 <div th:fragment="boot-scripts">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

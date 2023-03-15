@@ -14,21 +14,21 @@
     <div class="form-group">
       <label for="category">category</label>
       <select th:field="*{category}" id="category" name="category" required>
-        <option value="safety">Safety</option>
-        <option value="free">Free</option>
-        <option value="services">Services</option>
-        <option value="lost-pet">Lost Pet</option>
-        <option value="for-sale">For Sale</option>
-        <option value="general">General</option>
+        <option value="Safety">Safety</option>
+        <option value="Free">Free</option>
+        <option value="Services">Services</option>
+        <option value="Lost-Pet">Lost Pet</option>
+        <option value="For-Sale">For Sale</option>
+        <option value="General">General</option>
       </select>
     </div>
     <div class="form-group">
-      <label for="title">title</label>
-      <textarea id="title" name="title" class="form-control" type="text" th:field="*{title}" ></textarea>
+      <label for="title">Title</label>
+      <input id="title" name="title" class="form-control" type="text" th:field="*{title}" >
     </div>
     <div class="form-group">
-      <label for="body">body</label>
-      <input id="body" name="body" class="form-control" type="text" th:field="*{body}">
+      <label for="body">Body</label>
+        <textarea id="body" name="body" class="form-control" type="text" th:field="*{body}"></textarea>
     </div>
     <input type="hidden" name="propId" th:field="*{property}">
     <input type="hidden" name="noteId" th:field="*{id}">
