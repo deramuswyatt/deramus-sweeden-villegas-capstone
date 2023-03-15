@@ -269,6 +269,7 @@ img {
     margin-top: 20px;
 }
 
+
 #brand-img {
     height: 100px;
     padding-top: -30px;
@@ -284,7 +285,15 @@ img {
 .nav-item {
     margin-left : 1em;
     margin-right : 1em;
+
+
+.vid {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+
 }
-
-
 
