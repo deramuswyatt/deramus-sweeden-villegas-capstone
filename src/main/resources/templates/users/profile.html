@@ -19,9 +19,31 @@
             <p class="profile-email" th:text="|Email: ${#authentication.principal.email}|"></p>
             <!--put edit profile and create property buttons next to each other -->
             <a th:href="@{/profile/edit}" class="btn btn-primary">Edit Profile</a>
-            <!--        <button th:href="@{/props/create}" class="text-links">Create Property</button>-->
-            <a th:href="@{/props/create}" class="btn btn-primary">Create Property</a>
+
         </div>
+
+    </div><br>
+
+    <!--        <button th:href="@{/props/create}" class="text-links">Create Property</button>-->
+    <a th:href="@{/props/create}" class="btn btn-primary">Create Property</a>
+
+<!--&lt;!&ndash;this is code for each individual property&ndash;&gt;-->
+<!--    <div th:each="prop : ${props}">-->
+<!--        <div th:if="${#authentication.principal.id == prop.user.id}">-->
+<!--            <a th:href="@{/props/{id} (id = ${prop.id})}"><h1 th:text="${prop.street_add}"></h1></a>-->
+<!--            <p th:text="${prop.category}"></p>-->
+<!--            <p><img th:src="${prop.image_url}" alt="control" width="200" height="200"></p>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    combined code - in testing now - figure out authorization error-->
+    <div class="col" th:each="prop : ${props}">
+
+        <div class="card-container">
+            <div class="card profile-card">
+                <div class="row">
+
+
     </div>
     <br>
 
@@ -42,6 +64,7 @@
         <div class="card-container">
             <div class="card profile-card">
                 <div class="row">
+
                     <div th:if="${#authentication.principal.id == prop.user.id}">
                         <h2 class="card-header" th:text="|Property Category: ${prop.category}|"></h2>
                         <a th:href="@{/props/{id} (id = ${prop.id})}"><p th:text="${prop.street_add}"></p></a>
@@ -49,13 +72,16 @@
                             <img th:src="${prop.image_url}" alt="control" width="200" height="200">
                         </p>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
+
     <!--            </div>-->
     <!--        </div>-->
     <!--    </div>-->
+
 
 
 </main>

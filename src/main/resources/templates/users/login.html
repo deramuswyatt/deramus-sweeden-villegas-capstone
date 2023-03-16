@@ -4,9 +4,9 @@
 <body class="main-bg main-container">
 <nav th:replace="partials :: navbar"></nav>
 <main class="container">
-    <h1>Welcome back!</h1>
-    <div th:if="${param.error}">
-        Invalid Username and Password.
+    <h1 class="welcome-message">Welcome back!</h1>
+    <div class="login-error" th:if="${param.error}">
+        Invalid Username and Password. Please try again.
     </div>
     <div th:if="${param.logout}">
         You have been logged out.
