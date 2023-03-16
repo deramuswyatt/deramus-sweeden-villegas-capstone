@@ -8,8 +8,8 @@
   <h1>Create a Note for this Property</h1>
   <form th:action="@{/notes/create}" th:method="post" th:object="${note}">
       <div class="form-group">
-          <label for="category">category</label>
-          <select th:field="*{category}" id="category" name="category" required>
+          <label for="category">Category</label>
+          <select class="form-select"  th:field="*{category}" id="category" name="category" required>
               <option value="Safety">Safety</option>
               <option value="Free">Free</option>
               <option value="Services">Services</option>

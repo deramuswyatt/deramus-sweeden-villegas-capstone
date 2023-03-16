@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials :: head('Create Notes')"></head>
+<head th:replace="partials :: head('Edit Notes')"></head>
 <body class="main-bg main-container">
 <nav th:replace="partials :: navbar"></nav>
 <main class="container">
 
-  <h1>Create a Note for this Property</h1>
+  <h1>Edit a Note for this Property</h1>
   <form th:action="@{/notes/edit}" th:method="post" th:object="${notes}">
 <!--    <div class="form-group">-->
 <!--      <label for="category">category</label>-->
@@ -13,7 +13,7 @@
 <!--    </div>-->
     <div class="form-group">
       <label for="category">Category</label>
-      <select th:field="*{category}" id="category" name="category" required>
+      <select class="form-select"  th:field="*{category}" id="category" name="category" required>
         <option value="Safety">Safety</option>
         <option value="Free">Free</option>
         <option value="Services">Services</option>
