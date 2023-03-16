@@ -171,6 +171,15 @@ a:hover {
     color: #FCA311;
 }
 
+.comm-note-anchor {
+    text-decoration: none;
+    color: #118ab2;
+}
+
+.comm-note-anchor:hover {
+    color: #FCA311;
+}
+
 .form-label {
     padding-top: 10px;
 }

@@ -6,11 +6,11 @@
 <main class="container">
     <h1>My Profile</h1><br>
 
-<!--    <h3 th:text="|Email: ${#authentication.principal.email}|"></h3>-->
-<!--    <h3 th:text="|User ID: ${#authentication.principal.id}|"></h3>-->
+    <!--    <h3 th:text="|Email: ${#authentication.principal.email}|"></h3>-->
+    <!--    <h3 th:text="|User ID: ${#authentication.principal.id}|"></h3>-->
 
-<!--    <a th:href="@{/profile/edit}" class="text-links">Edit Profile</a>-->
-<!--    <a th:href="@{/props/create}" class="text-links">Create Property</a>-->
+    <!--    <a th:href="@{/profile/edit}" class="text-links">Edit Profile</a>-->
+    <!--    <a th:href="@{/props/create}" class="text-links">Create Property</a>-->
 
     <!--    start of profile details within card:-->
     <div class="card-container">
@@ -21,6 +21,7 @@
             <a th:href="@{/profile/edit}" class="btn btn-primary">Edit Profile</a>
 
         </div>
+
     </div><br>
 
     <!--        <button th:href="@{/props/create}" class="text-links">Create Property</button>-->
@@ -42,6 +43,28 @@
             <div class="card profile-card">
                 <div class="row">
 
+
+    </div>
+    <br>
+
+    <!--this is code for each individual property-->
+    <!--        <div th:each="prop : ${props}">-->
+    <!--            <div th:if="${#authentication.principal.id == prop.user.id}">-->
+    <!--                <a th:href="@{/props/{id} (id = ${prop.id})}"><h1 th:text="${prop.street_add}"></h1></a>-->
+    <!--                <p th:text="${prop.category}"></p>-->
+    <!--                <p><img th:src="${prop.image_url}" alt="control" width="200" height="200"></p>-->
+    <!--            </div>-->
+    <!--        </div>-->
+
+    <!--    combined code - in testing now - figure out authorization error-->
+    <!--    <div class="card-container">-->
+    <!--        <div class="card profile-card">-->
+    <!--            <div class="row">-->
+    <div class="col" th:each="prop : ${props}">
+        <div class="card-container">
+            <div class="card profile-card">
+                <div class="row">
+
                     <div th:if="${#authentication.principal.id == prop.user.id}">
                         <h2 class="card-header" th:text="|Property Category: ${prop.category}|"></h2>
                         <a th:href="@{/props/{id} (id = ${prop.id})}"><p th:text="${prop.street_add}"></p></a>
@@ -54,6 +77,12 @@
             </div>
         </div>
     </div>
+
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
+
 
 </main>
 <footer th:replace="partials :: footer"></footer>
