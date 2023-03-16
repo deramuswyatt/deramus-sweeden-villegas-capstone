@@ -228,11 +228,24 @@ img {
 }
 
 .prop-card {
-    height: 550px;
-    width: 400px;
+    height: auto;
+    width: 600px;
     padding: 0;
     border-radius: 0;
 }
+
+
+
+.card.profile-prop-card {
+    text-align: center;
+    width: 500px; !important
+}
+
+.card.profile-prop-card img {
+    max-width: 100%;
+    height: auto;
+}
+
 
 .card img {
     display: block;
@@ -383,6 +396,16 @@ img {
     border: none;
 }
 
+.profile-prop-card {
+    width: 30%;
+    height: 350px;
+    margin: 10px;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    border-radius: 0;
+}
+
+
 .welcome-message {
     padding-top: 20px;
 }
@@ -467,4 +490,6 @@ input[type="submit"] {
     width: 100%;
 }
 
-.
+.propCatSelect{
+    width: 750px;
+}
