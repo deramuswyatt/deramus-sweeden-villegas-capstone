@@ -299,8 +299,9 @@ img {
 /*}*/
 
 .nav-item {
-    margin-left : 1em;
-    margin-right : 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
 
 
 .vid {
@@ -312,4 +313,5 @@ img {
     opacity: 0.2;
 
 }
+
 
