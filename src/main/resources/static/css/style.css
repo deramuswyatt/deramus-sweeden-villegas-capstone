@@ -415,24 +415,39 @@ input[type="submit"] {
     color: #D22B2B;
 }
 /*newest additions:*/
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/*.mb-3 {*/
+/*form {*/
 /*    display: flex;*/
 /*    flex-direction: column;*/
 /*    align-items: center;*/
 /*}*/
 
-.form-control {
-    width: 100%;
-    margin-bottom: 10px;
+/*!*.mb-3 {*!*/
+/*!*    display: flex;*!*/
+/*!*    flex-direction: column;*!*/
+/*!*    align-items: center;*!*/
+/*!*}*!*/
+
+/*.form-control {*/
+/*    width: 100%;*/
+/*    margin-bottom: 10px;*/
+/*}*/
+
+/*input[type="submit"] {*/
+/*    width: 100%;*/
+/*}*/
+
+.btn-edit-profile {
+    width: auto;
 }
 
-input[type="submit"] {
-    width: 100%;
+.btn-create-profile {
+    width: 80%;
 }
 
+.container-profile {
+    text-align: center;
+}
+
+.footer-bg {
+    width: 300px;
+}

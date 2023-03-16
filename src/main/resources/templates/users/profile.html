@@ -3,7 +3,7 @@
 <head th:replace="partials :: head ('Profile Page')"></head>
 <body class="main-bg main-container">
 <nav th:replace="partials :: navbar"></nav>
-<main class="container">
+<main class="container-profile">
     <h1>My Profile</h1><br>
 
     <!--    <h3 th:text="|Email: ${#authentication.principal.email}|"></h3>-->
@@ -18,14 +18,14 @@
             <h2 class="card-header greeting" th:text="|Hello, ${#authentication.principal.username}!|"></h2>
             <p class="profile-email" th:text="|Email: ${#authentication.principal.email}|"></p>
             <!--put edit profile and create property buttons next to each other -->
-            <a th:href="@{/profile/edit}" class="btn btn-primary">Edit Profile</a>
+            <a th:href="@{/profile/edit}" class="btn btn-primary btn-edit-profile">Edit Profile</a>
 
         </div>
 
     </div><br>
 
     <!--        <button th:href="@{/props/create}" class="text-links">Create Property</button>-->
-    <a th:href="@{/props/create}" class="btn btn-primary">Create Property</a>
+    <a th:href="@{/props/create}" class="btn btn-primary btn-create-profile">Create Property</a>
 
 <!--&lt;!&ndash;this is code for each individual property&ndash;&gt;-->
 <!--    <div th:each="prop : ${props}">-->
@@ -77,13 +77,11 @@
             </div>
         </div>
     </div>
-
     <!--            </div>-->
     <!--        </div>-->
     <!--    </div>-->
 
-
-
+            </div>
 </main>
 <footer th:replace="partials :: footer"></footer>
 <div th:replace="partials :: boot-scripts"></div>
