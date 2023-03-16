@@ -58,27 +58,45 @@
     <!--            </div>-->
     <!--        </div>-->
 
-    <!--    combined code - in testing now - figure out authorization error-->
-    <!--    <div class="card-container">-->
-    <!--        <div class="card profile-card">-->
-    <!--            <div class="row">-->
     <div class="col" th:each="prop : ${props}">
-        <div class="card-container">
-            <div class="card profile-card">
-                <div class="row">
-
-                    <div th:if="${#authentication.principal.id == prop.user.id}">
+        <div th:if="${#authentication.principal.id == prop.user.id}">
+            <div class="card-container">
+                <div class="card profile-card">
+                    <div class="row">
                         <h2 class="card-header" th:text="|Property Category: ${prop.category}|"></h2>
                         <a th:href="@{/props/{id} (id = ${prop.id})}"><p th:text="${prop.street_add}"></p></a>
                         <p>
                             <img th:src="${prop.image_url}" alt="control" width="200" height="200">
                         </p>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
+
+
+
+    <!--    combined code - in testing now - figure out authorization error-->
+    <!--    <div class="card-container">-->
+    <!--        <div class="card profile-card">-->
+    <!--            <div class="row">-->
+<!--    <div class="col" th:each="prop : ${props}">-->
+<!--        <div class="card-container">-->
+<!--            <div class="card profile-card">-->
+<!--                <div class="row">-->
+
+<!--                    <div th:if="${#authentication.principal.id == prop.user.id}">-->
+<!--                        <h2 class="card-header" th:text="|Property Category: ${prop.category}|"></h2>-->
+<!--                        <a th:href="@{/props/{id} (id = ${prop.id})}"><p th:text="${prop.street_add}"></p></a>-->
+<!--                        <p>-->
+<!--                            <img th:src="${prop.image_url}" alt="control" width="200" height="200">-->
+<!--                        </p>-->
+<!--                    </div>-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
     <!--            </div>-->
     <!--        </div>-->
     <!--    </div>-->

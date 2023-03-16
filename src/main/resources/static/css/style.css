@@ -231,7 +231,6 @@ img {
     height: 550px;
     width: 400px;
     padding: 0;
-    margin: 20px;
     border-radius: 0;
 }
 
@@ -347,8 +346,8 @@ img {
 }
 
 .card {
-    width: 100%;
-    max-width: 18rem;
+    /*width: 100%;*/
+    /*max-width: 18rem;*/
     margin-bottom: 1rem;
 }
 
@@ -379,7 +378,7 @@ img {
 
 .profile-card {
     width: 80%;
-    max-width: 100%;
+    /*max-width: 100%;*/
     margin: auto;
     border: none;
 }
@@ -413,6 +412,17 @@ input[type="submit"] {
 .login-error {
     text-align: center;
     color: #D22B2B;
+}
+#c1{
+   margin: 18px;
+}
+#c2{
+    margin: 18px;
+
+}
+#c3{
+    margin: 18px;
+
 }
 /*newest additions:*/
 /*form {*/
@@ -449,5 +459,12 @@ input[type="submit"] {
 }
 
 .footer-bg {
-    width: 300px;
+    width: 80%;
+    justify-content: center;
 }
+
+#prop-show{
+    width: 100%;
+}
+
+.
