@@ -491,5 +491,14 @@ input[type="submit"] {
 }
 
 .propCatSelect{
-    width: 750px;
+    width: 1040px;
 }
+
+/*footer {*/
+/*    text-align: center;*/
+/*    !*position: absolute;*!*/
+/*    bottom: 0;*/
+/*    width: 100%;*/
+/*    position: fixed;*/
+/*    z-index: 1;*/
+/*}*/
