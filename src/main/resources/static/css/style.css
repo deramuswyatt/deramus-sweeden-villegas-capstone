@@ -451,3 +451,7 @@ input[type="submit"] {
 .footer-bg {
     width: 300px;
 }
+
+.propCatSelect{
+    width: 750px;
+}

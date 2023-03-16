@@ -1,3 +1,104 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head th:replace="partials :: head('Create Property')">-->
+<!--</head>-->
+<!--<body class="main-bg main-container">-->
+<!--<nav th:replace="partials :: navbar"></nav>-->
+<!--<script src="/js/keys.js"></script>-->
+<!--<script-->
+<!--        id="search-js"-->
+<!--        defer-->
+<!--        src="https://api.mapbox.com/search-js/v1.0.0-beta.14/web.js"-->
+<!--&gt;-->
+<!--</script>-->
+<!--<script>-->
+<!--    const script = document.getElementById('search-js');-->
+<!--    script.onload = function () {-->
+<!--        mapboxsearch.autofill({-->
+<!--            accessToken: mapBoxKey-->
+<!--        });-->
+<!--    };-->
+<!--</script>-->
+<!--<main class="container">-->
+
+<!--    <h1>Enter a Property</h1>-->
+<!--    <form th:action="@{/props/create}" th:method="post" th:object="${prop}">-->
+<!--        <div class="form-group">-->
+<!--            <label for="category">Category</label>-->
+<!--            <select class="form-select"  th:field="*{category}" id="category" name="category" required>-->
+<!--                <option value="Home">Home</option>-->
+<!--                <option value="Rental">Rental</option>-->
+<!--                <option value="Vacant">Vacant</option>-->
+<!--                <option value="Vacation-Home">Vacation Home</option>-->
+<!--                <option value="I'm-Interested">I'm Interested</option>-->
+<!--                <option value="Air-BnB">My AirBnB</option>-->
+<!--            </select>-->
+<!--        </div>-->
+
+<!--        <div id="form1" class="form-group">-->
+<!--            <label for="street_add">Street Address</label>-->
+<!--            &lt;!&ndash;            <input id="street_add" name="street_add" class="form-control" type="text" th:field="*{street_add}" >&ndash;&gt;-->
+<!--            <input-->
+<!--                    class="form-control" id="street_add" name="address" placeholder="Address" type="text"-->
+<!--                    autocomplete="address-line1"-->
+<!--                    th:field="*{street_add}"-->
+<!--            />-->
+<!--        </div>-->
+
+<!--        <div id="form2" class="form-group">-->
+<!--            <label for="city">City</label>-->
+<!--            &lt;!&ndash;            <input id="city" name="city" class="form-control" type="text" th:field="*{city}">&ndash;&gt;-->
+<!--            <input-->
+<!--                    class="form-control" id="city" name="city" placeholder="City" type="text"-->
+<!--                    autocomplete="address-level2"-->
+<!--                    th:field="*{city}"-->
+<!--            />-->
+<!--        </div>-->
+
+<!--        <div id="form3" class="form-group">-->
+<!--            <label for="state">State</label>-->
+<!--            &lt;!&ndash;            <input id="state" name="state" class="form-control" type="text" th:field="*{state}" >&ndash;&gt;-->
+<!--            <input-->
+<!--                    class="form-control" id="state" name="state" placeholder="State" type="text"-->
+<!--                    autocomplete="address-level1"-->
+<!--                    th:field="*{state}"-->
+<!--            />-->
+<!--        </div>-->
+
+<!--        <div id="form4" class="form-group">-->
+<!--            <label for="zip">Zip</label>-->
+<!--            &lt;!&ndash;            <input id="zip" name="zip" class="form-control" type="text" th:field="*{zip}">&ndash;&gt;-->
+<!--            <input-->
+<!--                    class="form-control" id="zip" name="postcode" placeholder="Postcode" type="text"-->
+<!--                    autocomplete="postal-code"-->
+<!--                    th:field="*{zip}"-->
+<!--            />-->
+<!--        </div>-->
+
+<!--        <div id="form5" class="form-group">-->
+<!--            <label for="image">Property Image</label>-->
+<!--            <input type="hidden" id="image" th:field="*{image_url}">-->
+<!--            <input type="hidden" th:value="${apikey}" id="apikey">-->
+<!--        </div>-->
+<!--        <p class="btn" id="test" name="test">Upload</p>-->
+<!--        <br>-->
+<!--        <input type="hidden" th:field="*{id}">-->
+
+<!--        <input type="submit" class="btn">-->
+<!--    </form>-->
+
+<!--</main>-->
+<!--<footer th:replace="partials :: footer"></footer>-->
+<!--<div th:replace="partials :: boot-scripts"></div>-->
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>-->
+<!--<script src="https://code.jquery.com/jquery-2.2.4.min.js"-->
+<!--        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>-->
+<!--<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>-->
+<!--<script type="application/javascript" src="/js/filestack.js"></script>-->
+<!--</body>-->
+<!--</html>-->
+
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials :: head('Create Property')">
@@ -19,72 +120,80 @@
         });
     };
 </script>
-<main class="container">
+<main class="container d-flex flex-column">
 
     <h1>Enter a Property</h1>
+
     <form th:action="@{/props/create}" th:method="post" th:object="${prop}">
-        <div class="form-group">
-            <label for="category">category</label>
-            <select class="form-select"  th:field="*{category}" id="category" name="category" required>
-                <option value="Home">Home</option>
-                <option value="Rental">Rental</option>
-                <option value="Vacant">Vacant</option>
-                <option value="Vacation-Home">Vacation Home</option>
-                <option value="I'm-Interested">I'm Interested</option>
-                <option value="Air-BnB">My AirBnB</option>
-            </select>
+
+        <div class="mb-3 d-flex flex-column">
+
+<!--            <div class="form-group d-flex">-->
+                <label for="category">Category</label>
+                <select class="form-select d-flex propCatSelect"  th:field="*{category}" id="category" name="category" required>
+                    <option value="Home">Home</option>
+                    <option value="Rental">Rental</option>
+                    <option value="Vacant">Vacant</option>
+                    <option value="Vacation-Home">Vacation Home</option>
+                    <option value="I'm-Interested">I'm Interested</option>
+                    <option value="Air-BnB">My AirBnB</option>
+                </select>
+<!--            </div>-->
+
+<!--            <div id="form1" class="form-group">-->
+                <label for="street_add">Street Address</label>
+                <!--            <input id="street_add" name="street_add" class="form-control" type="text" th:field="*{street_add}" >-->
+                <input
+                        class="form-control" id="street_add" name="address" placeholder="Address" type="text"
+                        autocomplete="address-line1"
+                        th:field="*{street_add}"
+                />
+<!--            </div>-->
+
+<!--            <div id="form2" class="form-group">-->
+                <label for="city">City</label>
+                <!--            <input id="city" name="city" class="form-control" type="text" th:field="*{city}">-->
+                <input
+                        class="form-control" id="city" name="city" placeholder="City" type="text"
+                        autocomplete="address-level2"
+                        th:field="*{city}"
+                />
+<!--            </div>-->
+
+<!--            <div id="form3" class="form-group">-->
+                <label for="state">State</label>
+                <!--            <input id="state" name="state" class="form-control" type="text" th:field="*{state}" >-->
+                <input
+                        class="form-control" id="state" name="state" placeholder="State" type="text"
+                        autocomplete="address-level1"
+                        th:field="*{state}"
+                />
+<!--            </div>-->
+
+<!--            <div id="form4" class="form-group">-->
+                <label for="zip">Zip</label>
+                <!--            <input id="zip" name="zip" class="form-control" type="text" th:field="*{zip}">-->
+                <input
+                        class="form-control" id="zip" name="postcode" placeholder="Postcode" type="text"
+                        autocomplete="postal-code"
+                        th:field="*{zip}"
+                />
+<!--            </div>-->
+
+<!--            <div id="form5" class="form-group">-->
+                <label for="image">Property Image</label>
+                <input type="hidden" id="image" th:field="*{image_url}">
+                <input type="hidden" th:value="${apikey}" id="apikey">
+<!--            </div>-->
+            <p class="btn btn-create-profile" id="test" name="test">Upload</p>
+            <br>
+            <input type="hidden" th:field="*{id}">
+
+            <input type="submit" class="btn btn-create-profile">
+
         </div>
 
-        <div id="form1" class="form-group">
-            <label for="street_add">Street Address</label>
-            <!--            <input id="street_add" name="street_add" class="form-control" type="text" th:field="*{street_add}" >-->
-            <input
-                    class="form-control" id="street_add" name="address" placeholder="Address" type="text"
-                    autocomplete="address-line1"
-                    th:field="*{street_add}"
-            />
-        </div>
 
-        <div id="form2" class="form-group">
-            <label for="city">City</label>
-            <!--            <input id="city" name="city" class="form-control" type="text" th:field="*{city}">-->
-            <input
-                    class="form-control" id="city" name="city" placeholder="City" type="text"
-                    autocomplete="address-level2"
-                    th:field="*{city}"
-            />
-        </div>
-
-        <div id="form3" class="form-group">
-            <label for="state">State</label>
-            <!--            <input id="state" name="state" class="form-control" type="text" th:field="*{state}" >-->
-            <input
-                    class="form-control" id="state" name="state" placeholder="State" type="text"
-                    autocomplete="address-level1"
-                    th:field="*{state}"
-            />
-        </div>
-
-        <div id="form4" class="form-group">
-            <label for="zip">Zip</label>
-            <!--            <input id="zip" name="zip" class="form-control" type="text" th:field="*{zip}">-->
-            <input
-                    class="form-control" id="zip" name="postcode" placeholder="Postcode" type="text"
-                    autocomplete="postal-code"
-                    th:field="*{zip}"
-            />
-        </div>
-
-        <div id="form5" class="form-group">
-            <label for="image">Property Image</label>
-            <input type="hidden" id="image" th:field="*{image_url}">
-            <input type="hidden" th:value="${apikey}" id="apikey">
-        </div>
-        <p class="btn" id="test" name="test">Upload</p>
-        <br>
-        <input type="hidden" th:field="*{id}">
-
-        <input type="submit" class="btn">
     </form>
 
 </main>
