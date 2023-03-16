@@ -4,7 +4,7 @@
 <body class="main-bg main-container">
 <nav th:replace="partials :: navbar"></nav>
 <main class="container">
-  <h1>Create an account</h1>
+  <h1>Create an account</h1><br>
   <form th:action="@{/register}" th:method="POST" th:object="${user}">
     <label for="name">Name</label>
     <input id="name" th:field="*{name}" required/>
@@ -19,7 +19,9 @@
     <input id="password" type="password" th:field="*{password}" required/>
 <!--        <div class="error-message" style="color: red; font-weight: bold" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>-->
 <!--        <div class="error-message" style="color: red; font-weight: bold" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>-->
-    <input id="reg-btn" value="Sign me up!" type="submit" />
+
+    <input class="reg-signup" value="Sign me up!" type="submit" />
+
   </form>
 </main>
 <footer th:replace="partials :: footer"></footer>

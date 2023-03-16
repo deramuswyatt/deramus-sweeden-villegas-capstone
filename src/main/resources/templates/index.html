@@ -11,15 +11,17 @@
 <nav th:replace="partials :: navbar"></nav>
 
 <main class="container-home">
+    <div class="proj-description">
     <h1>Welcome to PropertyConnects</h1>
     <h3>
-        A centralized space where you can view your properties and weather-related home maintenance tasks specific to
-        your area. We also provide a place where neighbors can connect to receive trusted information and give and get
-        help.
+        A centralized space where you can view your properties with location-specific weather-related home maintenance tasks & reminders. In addition, the Community Dashboard allows neighbors to share information and resources, fostering collaboration among homeowners.
     </h3>
-<!--    <video autoplay muted loop class="vid">-->
-<!--        <source src="/img/video.mp4">-->
-<!--    </video>-->
+    </div>
+    <div class="video-container">
+    <video autoplay muted loop class="vid">
+        <source src="/img/video.mp4">
+    </video>
+    </div>
 </main>
 <footer th:replace="partials :: footer"></footer>
 <div th:replace="partials :: boot-scripts"></div>
