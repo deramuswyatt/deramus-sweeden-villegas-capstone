@@ -116,8 +116,6 @@ ul {
 .card {
     float: none;
     margin: 0 auto 10px;
-    display: inline-flex;
-    flex-wrap: nowrap;
 }
 
 /*@media screen and (min-width: 40em) {*/
@@ -356,6 +354,18 @@ img {
     text-align: center;
     margin: auto;
     padding: 10px;
+}
+
+/*#post-btn{*/
+/*display: flex;*/
+/*    justify-content: center;*/
+/*    !*justify-items: center;*!*/
+/*}*/
+#prop-notes{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    /*justify-items: center;*/
 }
 
 .card {
