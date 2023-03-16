@@ -65,7 +65,7 @@ public class UserController {
 
 //    the following code is for editing user's profile details and deleting their account:
     @GetMapping("/profile/edit")
-    public String showEditProfileForm(Model model) {
+    public String showEditProfileForm() {
         return "users/editProfile"; //this is the html name
     }
 
@@ -79,10 +79,10 @@ public class UserController {
 //    }
 
     @PostMapping("/profile/edit")
-    public String saverEditProfile(@ModelAttribute User user, @RequestParam(name = "username") String username, @RequestParam(name = "name") String name,  @RequestParam(name = "email") String email, @RequestParam(name = "password") String password) {
+    public String saverEditProfile(@ModelAttribute User user, @RequestParam(name = "username") String username, @RequestParam(name = "name") String name,  @RequestParam(name = "email") String email) {
         user = userDao.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
-        String hash = passwordEncoder.encode(password);
-        user.setPassword(hash);
+//        String hash = passwordEncoder.encode(password);
+//        user.setPassword(hash);
         user.setUsername(username);
         user.setName(name);
         user.setEmail(email);
@@ -92,7 +92,7 @@ public class UserController {
         userDetails.setUsername(username);
         userDetails.setName(name);
         userDetails.setEmail(email);
-        userDetails.setPassword(hash);
+//        userDetails.setPassword(hash);
         return "redirect:/profile";
     }
 
