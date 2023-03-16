@@ -60,6 +60,7 @@
     <!--        </div>-->
 
     <!--    combined code - in testing now - figure out authorization error-->
+
     <div class="row">
         <div class="col" th:each="prop : ${props}">
             <div th:if="${#authentication.principal.id == prop.user.id}">
@@ -75,11 +76,19 @@
                         <span th:text="|${prop.state}, |"></span>
                         <span th:text="${prop.zip}"></span></a>
 
+
                 </div>
             </div>
             <!--        </div>-->
         </div>
     </div>
+
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
+    </div>
+
 </main>
 <footer th:replace="partials :: footer"></footer>
 <div th:replace="partials :: boot-scripts"></div>
