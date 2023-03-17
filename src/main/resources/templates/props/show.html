@@ -38,7 +38,7 @@
     <!--    </div>-->
      <div id="prop-show" class="row">
             <div class="col-6">
-                <div class="card">
+                <div class="card h-100">
                     <h5 class="card-header" th:text="|Category: ${prop.category}|"></h5>
                     <p><img th:src="${prop.image_url}" alt="control" width="200" height="200"></p>
                     <div class="card d-flex justify-content-center">
@@ -52,9 +52,9 @@
                 </div>
             </div>
             <div class="col-6" id="current">
-                <div class="card c2">
+                <div class="card c2 h-100 d-flex">
                     <h5 class="card-header">Current Weather Conditions</h5>
-                    <div class="card">
+                    <div class="my-auto card">
                     <input type="hidden" th:value="${weather.description}" id="icon">
                     <p id="wxIcon"></p>
                     <p th:text="|Description: ${weather.descriptText}.|"></p>
@@ -80,8 +80,8 @@
                         </div>
                 </div>
          </div>
-    <div class="com-btn">
-         <a th:href="@{/notes/create/{id}(id=${prop.id})}" class="btn btn-primary">Post to Community Dashboard</a>
+    <div class="com-btn d-flex">
+         <a th:href="@{/notes/create/{id}(id=${prop.id})}" class="btn btn-primary mx-auto">Post to Community Dashboard</a>
     </div>
 
 
