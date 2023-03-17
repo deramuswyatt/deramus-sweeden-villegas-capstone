@@ -1,6 +1,7 @@
 package com.codeup.deramussweedenvillegascapstone.repositories;
 
 import com.codeup.deramussweedenvillegascapstone.models.Note;
+import com.codeup.deramussweedenvillegascapstone.models.Property;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -11,6 +12,8 @@ public interface NoteRepository extends JpaRepository<Note, Long> {
     Note findNotesById(long id);
 
     Note findById(long id);
+
+    List<Note> findNotesByProperty(Property property);
 
     //This one works!
 //    @Query("from Note a where a.title LIKE  %:term% OR a.body LIKE  %:term% OR a.category like %:term%")

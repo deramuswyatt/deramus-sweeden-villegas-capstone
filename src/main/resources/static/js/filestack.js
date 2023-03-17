@@ -1,8 +1,9 @@
 "use strict";
 
 $(function () {
-
-    const client = filestack.init($("#apikey").val());
+    let key = $("#apikey").val();
+    console.log(key);
+    const client = filestack.init(key);
 
     $("#test").on("click", function (e) {
         e.preventDefault();

@@ -51,7 +51,7 @@ public class PropertyController {
         Property prop = propDao.findById(id);
 //        Note note = noteDao.findNotesById(id);
         model.addAttribute("prop", prop);
-        model.addAttribute("notes", noteDao.findAll());
+        model.addAttribute("notes", noteDao.findNotesByProperty(prop));
         model.addAttribute("weather", liveWeatherService.getCurrentWeather(prop.getCity(),"us"));
         return "props/show";
     }
@@ -85,6 +85,7 @@ public class PropertyController {
         Property prop = propDao.findById(id);
         if (user.getId() == prop.getUser().getId()) {
             model.addAttribute("prop", prop);
+            model.addAttribute("apikey", apiKey);
             return "props/create";
         } else {
             return "redirect:/props";

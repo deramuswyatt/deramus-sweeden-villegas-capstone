@@ -71,13 +71,11 @@
         </div>
          <div class="row">
                 <div class="col-12" th:each="note : ${notes}">
-                        <div th:if="${prop.id} == ${note.property.id} ">
                             <div class="card">
                             <a th:href="@{/notes/{id} (id = ${note.id})}"><h1 th:text="|Note Title: ${note.title}|"></h1></a>
                             <p th:text="|Body: ${note.body}|"></p>
                             <p th:text="|Category: ${note.category}|"></p>
                             </div>
-                        </div>
                 </div>
          </div>
     <div class="com-btn d-flex">
