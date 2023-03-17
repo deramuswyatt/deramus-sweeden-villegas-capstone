@@ -65,15 +65,19 @@
                 </div>
             </div>
          </div>
+        <div class="row">
+            <input type="hidden" id="temp" th:value="${weather.temperature}">
+            <p id="wxTempWarning"></p>
+        </div>
          <div class="row">
                 <div class="col-12" th:each="note : ${notes}">
-                    <div class="card">
                         <div th:if="${prop.id} == ${note.property.id} ">
-                            <a th:href="@{/notes/{id} (id = ${note.id})}"><h1 th:text="${note.title}"></h1></a>
-                            <p th:text="${note.body}"></p>
-                            <p th:text="${note.category}"></p>
+                            <div class="card">
+                            <a th:href="@{/notes/{id} (id = ${note.id})}"><h1 th:text="|Note Title: ${note.title}|"></h1></a>
+                            <p th:text="|Body: ${note.body}|"></p>
+                            <p th:text="|Category: ${note.category}|"></p>
+                            </div>
                         </div>
-                    </div>
                 </div>
          </div>
     <div class="com-btn">
@@ -106,8 +110,7 @@
 <!--        <p th:text="'Wind Speed: ' + ${weather.windSpeed} + ' mph'"></p>-->
 <!--    </div>-->
 
-<!--    <input type="hidden" id="temp" th:value="${weather.temperature}">-->
-<!--    <p id="wxTempWarning"></p>-->
+
 
 <!--    &lt;!&ndash;  Modify the notes listing to go into a card beneath the two top cards&ndash;&gt;-->
 <!--    <div  th:each="note : ${notes}">-->
