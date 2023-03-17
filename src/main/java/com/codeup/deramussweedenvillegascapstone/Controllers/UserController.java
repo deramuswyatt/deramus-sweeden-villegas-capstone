@@ -50,6 +50,7 @@ public class UserController {
     @GetMapping("/profile")
     public String showProfile(Model model) {
         User userDetails = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        userDetails =  userDao.findUserById(userDetails.getId());
 //        userDetails.setUsername(username);
 //        userDetails.setEmail(email);
 //        userDetails.setPassword(hash);
@@ -59,7 +60,7 @@ public class UserController {
 //        model.addAttribute("props", propDao.findByUser_Id(user.getId()));
 //        System.out.println("propDao.searchByPropertyLike(user.getId()) = " + propDao.searchByPropertyLike(user.getId()));
 //        model.addAttribute("props", propDao.searchByPropertyLike(user.getId()));
-        model.addAttribute("props", propDao.findAll());
+        model.addAttribute("props", userDetails.getProperty());
         return "users/profile";}
     public String showProfile() {return "users/profile";}
 
