@@ -15,7 +15,7 @@ $(function () {
 
     function tempWarning() {
         const temp = $("#temp").val();
-        // parseFloat(temp)
+        console.log(parseFloat(temp));
         console.log("test");
         if (temp > 90.00) {
             var warmWarning = '<div class="card prop-card" id="maintCard">' +
