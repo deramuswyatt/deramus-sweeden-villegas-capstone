@@ -1,19 +1,20 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="partials :: head ('Delete Property')">
-</head>
-<body class="main-container main-bg">
-<nav th:replace="partials :: navbar"></nav>
-<main class="container">
-  <h1>Are you sure you wish to delete this property?</h1>
-  <h2 th:text="|Property: ${prop.street_add}|"></h2>
-  <form th:action="@{'/props/' + ${prop.id} + '/delete'}" method="post">
-    <input type="hidden" th:value="${prop.id}" name="prop-id"/>
-    <button type="submit" class="btn nav-bg">Yes</button>
-    <a th:href="@{'/props/' + ${prop.id}}" class="footer-bg btn">No</a>
-  </form>
-</main>
-<footer th:replace="partials :: footer"></footer>
-<div th:replace="partials :: boot-scripts"></div>
-</body>
-</html>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">-->
+<!--<head th:replace="partials :: head ('Delete Property')">-->
+<!--</head>-->
+<!--<body class="main-container main-bg">-->
+<!--<nav th:replace="partials :: navbar"></nav>-->
+<!--<main class="container">-->
+<!--  <h1>Are you sure you wish to delete this property?</h1>-->
+<!--  <h2 th:text="|Property: ${prop.street_add}|"></h2>-->
+<!--  <form th:action="@{'/props/' + ${prop.id} + '/delete'}" method="post">-->
+<!--    <input type="hidden" th:value="${prop.id}" name="prop-id"/>-->
+<!--    <button type="submit" class="btn nav-bg">Yes</button>-->
+<!--    <a th:href="@{'/props/' + ${prop.id}}" class="footer-bg btn">No</a>-->
+<!--  </form>-->
+<!--</main>-->
+<!--<footer th:replace="partials :: footer"></footer>-->
+<!--<div th:replace="partials :: boot-scripts"></div>-->
+<!--</body>-->
+<!--</html>-->
+
