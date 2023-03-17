@@ -97,6 +97,19 @@ ul {
     padding-top: 30px;
 }
 
+.c1{
+    display: inline-block;
+
+}
+
+.com-btn{
+    display: flex;
+    justify-content: center;
+}
+.c2{
+    height: 502px;
+}
+
 /*@media (min-width: 992px){*/
 /*    .navbar li {*/
 /*        margin-left : 1em;*/
@@ -116,6 +129,7 @@ ul {
 .card {
     float: none;
     margin: 0 auto 10px;
+    /*display: inline-block;*/
 }
 
 /*@media screen and (min-width: 40em) {*/

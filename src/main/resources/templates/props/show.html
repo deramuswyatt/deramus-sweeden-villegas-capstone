@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="col-6" id="current">
-                <div class="card">
+                <div class="card c2">
                     <h5 class="card-header">Current Weather Conditions</h5>
                     <div class="card">
                     <input type="hidden" th:value="${weather.description}" id="icon">
@@ -76,8 +76,9 @@
                     </div>
                 </div>
          </div>
+    <div class="com-btn">
          <a th:href="@{/notes/create/{id}(id=${prop.id})}" class="btn btn-primary">Post to Community Dashboard</a>
-
+    </div>
 
 
 
