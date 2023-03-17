@@ -7,9 +7,9 @@
 <nav th:replace="partials :: navbar"></nav>
 <main class="container">
   <div>
-    <h1 th:text="${notes.title}"></h1>
-    <p th:text="|Body: ${notes.body}|"></p>
     <p th:text="|Category: ${notes.category}|"></p>
+    <h1 th:text="${notes.title}"></h1>
+    <p th:text="${notes.body}"></p>
     <span th:text="|City: ${notes.property.city}, |"></span>
     <span th:text="|State: ${notes.property.state}|"></span>
     <p th:text="|Zip: ${notes.property.zip}|"></p>
@@ -34,10 +34,11 @@
   <!--  <a th:href="@{/notes/{id}/edit(id=${notes.id})}" class="btn btn-primary">Edit Note</a>-->
   <!--  <a th:href="@{/notes/{id}/delete(id=${notes.id})}" class="btn btn-primary">Delete Note</a>-->
 
-  <div th:if="${#authentication.principal.id != null && #authentication.principal.id == notes.property.user.id}">
+  <div class="anything d-flex justify-content-space-between" th:if="${#authentication.principal.id != null && #authentication.principal.id == notes.property.user.id}">
     <a th:href="@{/notes/{id}/edit(id=${notes.id})}" class="btn btn-primary">Edit Note</a>
-    <a th:href="@{/notes/{id}/delete(id=${notes.id})}" class="btn btn-primary">Delete Note</a>
+      <a th:href="@{/notes/{id}/delete(id=${notes.id})}" class="btn btn-primary">Delete Note</a>
   </div>
+
 
 
 

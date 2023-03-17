@@ -3,7 +3,7 @@
 <head th:replace="partials :: head ('Profile Page')"></head>
 <body class="main-bg main-container">
 <nav th:replace="partials :: navbar"></nav>
-<main class="container-profile">
+<main class="container">
     <h1>My Profile</h1><br>
 
     <!--    <h3 th:text="|Email: ${#authentication.principal.email}|"></h3>-->
@@ -14,21 +14,20 @@
 
     <!--    start of profile details within card:-->
     <div class="card-container">
-        <div class="card profile-card">
+        <div class="card profile-card w-100">
             <h2 class="card-header greeting" th:text="|Hello, ${#authentication.principal.username}!|"></h2>
             <p class="profile-email" th:text="|Email: ${#authentication.principal.email}|"></p>
             <!--put edit profile and create property buttons next to each other -->
             <a th:href="@{/profile/edit}" class="btn btn-primary btn-edit-profile">Edit Profile</a>
-
+            <a th:href="@{/props/create}" class="btn btn-primary btn-create-profile w-100">Create Property</a>
         </div>
 
     </div>
     <br>
+    <br>
 
     <!--        <button th:href="@{/props/create}" class="text-links">Create Property</button>-->
-    <div>
-    <a th:href="@{/props/create}" class="btn btn-primary btn-create-profile">Create Property</a>
-    </div>
+
     <!--&lt;!&ndash;this is code for each individual property&ndash;&gt;-->
     <!--    <div th:each="prop : ${props}">-->
     <!--        <div th:if="${#authentication.principal.id == prop.user.id}">-->
@@ -49,7 +48,6 @@
 
     <!--    </div>-->
 
-    <br>
 
     <!--this is code for each individual property-->
     <!--        <div th:each="prop : ${props}">-->
@@ -62,30 +60,28 @@
 
 
     <!--    combined code - in testing now - figure out authorization error-->
-
-    <div class="row">
-        <div class="col" th:each="prop : ${props}">
-            <div th:if="${#authentication.principal.id == prop.user.id}">
-                <!--            <div class="card-container">-->
-                <div class="card profile-prop-card">
-                    <h4 class="card-header prop-header" th:text="|Property Category: ${prop.category}|"></h4>
-                    <p>
-                        <img th:src="${prop.image_url}" alt="control" width="200" height="200">
-                    </p>
-                    <a th:href="@{/props/{id} (id = ${prop.id})}">
-                        <span th:text="${prop.street_add}"></span><br>
-                        <span th:text="${prop.city}"></span>
-                        <span th:text="|${prop.state}, |"></span>
-                        <span th:text="${prop.zip}"></span></a>
+<!--    <div class="card-div">-->
+        <div class="row">
+            <div class="col-4" th:each="prop : ${props}">
+                <div th:if="${#authentication.principal.id == prop.user.id}">
+                    <!--            <div class="card-container">-->
+                    <div class="card profile-prop-card">
+                        <h4 class="card-header prop-header" th:text="|Property Category: ${prop.category}|"></h4>
+                        <p>
+                            <img th:src="${prop.image_url}" alt="control" width="200" height="200">
+                        </p>
+                        <a th:href="@{/props/{id} (id = ${prop.id})}">
+                            <span th:text="${prop.street_add}"></span><br>
+                            <span th:text="${prop.city}"></span>
+                            <span th:text="|${prop.state}, |"></span>
+                            <span th:text="${prop.zip}"></span></a>
+                    </div>
                 </div>
             </div>
-            <!--        </div>-->
         </div>
-    </div>
 
 
-
-    </div>
+<!--    </div>-->
 
 </main>
 <footer th:replace="partials :: footer"></footer>
