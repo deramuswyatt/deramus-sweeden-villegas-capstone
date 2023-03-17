@@ -16,23 +16,23 @@
     <p th:text="|Posted by: ${notes.property.user.username}|"></p>
   </div>
 
-<!--  <div class="card-container">-->
-<!--    <div class="card profile-card">-->
-<!--      <div class="row">-->
-<!--        <h1 th:text="${notes.title}"></h1>-->
-<!--        <p th:text="|Body: ${notes.body}|"></p>-->
-<!--        <p th:text="|Category: ${notes.category}|"></p>-->
-<!--        <span th:text="|City: ${notes.property.city}, |"></span>-->
-<!--        <span th:text="|State: ${notes.property.state}|"></span>-->
-<!--        <p th:text="|Zip: ${notes.property.zip}|"></p>-->
-<!--        <p th:text="|Posted by: ${notes.property.user.username}|"></p>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
+  <!--  <div class="card-container">-->
+  <!--    <div class="card profile-card">-->
+  <!--      <div class="row">-->
+  <!--        <h1 th:text="${notes.title}"></h1>-->
+  <!--        <p th:text="|Body: ${notes.body}|"></p>-->
+  <!--        <p th:text="|Category: ${notes.category}|"></p>-->
+  <!--        <span th:text="|City: ${notes.property.city}, |"></span>-->
+  <!--        <span th:text="|State: ${notes.property.state}|"></span>-->
+  <!--        <p th:text="|Zip: ${notes.property.zip}|"></p>-->
+  <!--        <p th:text="|Posted by: ${notes.property.user.username}|"></p>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
 
 
-<!--  <a th:href="@{/notes/{id}/edit(id=${notes.id})}" class="btn btn-primary">Edit Note</a>-->
-<!--  <a th:href="@{/notes/{id}/delete(id=${notes.id})}" class="btn btn-primary">Delete Note</a>-->
+  <!--  <a th:href="@{/notes/{id}/edit(id=${notes.id})}" class="btn btn-primary">Edit Note</a>-->
+  <!--  <a th:href="@{/notes/{id}/delete(id=${notes.id})}" class="btn btn-primary">Delete Note</a>-->
 
   <div th:if="${#authentication.principal.id != null && #authentication.principal.id == notes.property.user.id}">
     <a th:href="@{/notes/{id}/edit(id=${notes.id})}" class="btn btn-primary">Edit Note</a>
@@ -40,9 +40,7 @@
   </div>
 
 
-
 </main>
 <footer th:replace="partials :: footer"></footer>
 <div th:replace="partials :: boot-scripts"></div>
 </body>
-</html>
